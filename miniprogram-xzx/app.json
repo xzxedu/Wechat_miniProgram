@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/product/product",
+    "pages/mydetail/mydetail",
+    "pages/questionnaire/questionnaire"
+  ],
+  "tabBar": {
+    "borderStyle": "white",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "images/store.png",
+        "selectedIconPath": "images/store-selected.png"
+      },
+      {
+        "text": "产品",
+        "pagePath": "pages/product/product",
+        "iconPath": "images/store.png",
+        "selectedIconPath": "images/store-selected.png"
+      },
+      {
+        "text": "我的",
+        "pagePath": "pages/mydetail/mydetail",
+        "iconPath": "images/store.png",
+        "selectedIconPath": "images/store-selected.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "理财分析",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}
