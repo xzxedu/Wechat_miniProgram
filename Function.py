@@ -64,6 +64,9 @@ def splitData(data):
     
     # feature values
     x = data.iloc[:, 1:5].values
+    
+    # add constant 1 to get intercept in model
+    x = np.column_stack((np.ones(x.shape[0]), x))
 
     # target values, last 2 columns of data frame
     y_borrow = data.iloc[:, 5].values
@@ -99,7 +102,6 @@ def gradAscent(data, label, alpha, k):
         error = Y_matrix - h
         theta += alpha * np.dot(X_matrix.transpose(), error)
 
-
     return theta
 
 def stocGradAscent(data, label, alpha, k):  
@@ -116,7 +118,6 @@ def stocGradAscent(data, label, alpha, k):
         for i in range(m): #遍历计算每一行
             h = sigmoid(sum(X_matrix[i] * theta))
             error = Y_matrix[i] - h
-            # theta += alpha * X_matrix[i].transpose() * error
             theta += alpha * X_matrix[i].transpose() * error  
     
     return theta
