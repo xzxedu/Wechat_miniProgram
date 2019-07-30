@@ -1,0 +1,58 @@
+<view class="menu">
+    <scroll-view scroll-x="true" class="top-nav">
+        <view bindtap="toNew" class="top-btn {{new}}">上新</view>
+        <view bindtap="toInsurance" class="top-btn {{insurance}}">保险</view>
+        <view bindtap="toStock" class="top-btn {{stock}}">股票</view>
+        <view bindtap="toFund" class="top-btn {{fund}}">基金</view>
+        <view bindtap="toForeign" class="top-btn {{foreign}}">外汇</view>
+        <view bindtap="toBond" class="top-btn {{bond}}">债券</view>
+    </scroll-view>
+</view>
+<scroll-view scroll-y="true" style="height: 600px;">
+    <loading hidden="{{hidden}}">
+        加载中...
+    </loading>
+    <view class="first line">
+        <image class="first-img" mode="scaleToFill" src="/images/insurance.jpg"></image>
+    </view>
+        <view class="line forth">
+        <view class="left">
+            <image class="forth-img" mode="scaleToFill" src="/images/hot.jpg"></image>
+            <text class="text-center txt">根据您的喜好</text>
+            <text class="text-center txt">\n 系统智能分析</text>
+            <text class = "center-line-text">最推荐</text>
+        </view>
+        <view class="right">
+            <view class="top">
+                <view class="cl4">
+                    <image class="cl4-img" mode="scaleToFill" src="/images/hot.jpg"></image>
+                    <text class = "center-line-text">最热销</text>
+                </view>
+            </view>
+            <view class="bottom">
+                <view class="cl4">
+                    <image class="cl4-img" mode="scaleToFill" src="http://b2.hucdn.com//upload/hmp/1609/28/67263117394059_212x204.jpg!200q50.webp"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="line subtitle">
+        <image class="subtitle-img" mode="scaleToFill" src="/images/family.jpg"></image>
+        <view class="center-line-text">
+            <text class="text-center txt">产品1</text>
+        </view>
+    </view>
+    <view class="line subtitle">
+        <image class="subtitle-img" mode="scaleToFill" src="/images/family.jpg"></image>
+        <view class="center-line-text">
+            <text class="text-center txt">产品2</text>
+        </view>
+    </view>
+        <view class="line subtitle">
+        <image class="subtitle-img" mode="scaleToFill" src="/images/family.jpg"></image>
+    <view class="center-line-text">
+            <text class="text-center txt">产品3</text>
+        </view>
+    </view>
+</scroll-view>
+
