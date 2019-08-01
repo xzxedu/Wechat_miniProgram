@@ -62,8 +62,8 @@ border:1px solid rgba(0, 0, 0, 0);
   color: #666666; 
 } 
 .on{ 
-  color:#ffac06;
-  border-bottom:5rpx solid #ffac06;
+  color:#108ee9;
+  border-bottom:5rpx solid #108ee9;
 } 
 
 .swiper-box{ display: block; height: 100%; width: 100%; overflow: hidden; } 
@@ -73,7 +73,7 @@ border:1px solid rgba(0, 0, 0, 0);
   border-bottom:1px dotted #eeeeee;
 } 
 .btn-new {
-  background-color:#ffac06;
+  background-color:#108ee9;
 border-radius:7rpx;
 width:90%;
 height:78rpx;

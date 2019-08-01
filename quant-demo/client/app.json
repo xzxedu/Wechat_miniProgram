@@ -12,8 +12,8 @@
     {
       "text": "首页",
       "pagePath": "pages/index/index",
-      "iconPath": "images/store.png",
-      "selectedIconPath": "images/store-selected.png"
+      "iconPath": "images/index.png",
+      "selectedIconPath": "images/index-selected.png"
     },
     {
       "text": "产品",
@@ -24,8 +24,8 @@
     {
       "text": "我的",
       "pagePath": "pages/mydetail/mydetail",
-      "iconPath": "images/store.png",
-      "selectedIconPath": "images/store-selected.png"
+      "iconPath": "images/my.png",
+      "selectedIconPath": "images/my-selected.png"
     }
   ]
 },

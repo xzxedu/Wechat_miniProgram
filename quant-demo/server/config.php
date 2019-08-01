@@ -25,7 +25,7 @@ $config = [
         'port' => 3306,
         'user' => 'root',
         'db'   => 'cAuth',
-        'pass' => 'wx76aec7d8d5f5083f',
+        'pass' => 'wechatdemo123',
         'char' => 'utf8mb4'
     ],
 

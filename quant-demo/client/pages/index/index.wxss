@@ -11,13 +11,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color:	#BB647C;
-    color: white;
+    
+    color: black;
 }
 
 .question_btn{
     display: flex;
     align-items: center;
+    background-color:	#108ee9;
+    color: white;
     justify-content: center;
 }
 
@@ -37,11 +39,11 @@
 
 .second-img{
     height: 50px;
-    width: 50%;
+    width: 70%;
     align-items: center;
     justify-content: center;
     padding: 30rpx;
-    margin-bottom: 5rpx;
+    margin-bottom: 2rpx;
 }
 
 .sl-col{
@@ -65,7 +67,7 @@
 .subtitle-background{
     height: 100%;
     width: 100%;
-    background-color:#BB647C;
+    background-color:#108ee9;
 }
 
 .product-img{

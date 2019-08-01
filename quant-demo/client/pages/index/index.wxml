@@ -15,7 +15,7 @@ enable-back-to-top="true" bindscrolltolower="bindDownLoad">
     </view>
     <view class="second line">
         <view class="sl-col">
-             <image class="second-img" mode="scaleToFill" src="/images/doctoe2.png"></image>
+             <image class="second-img" mode="scaleToFill" src="/images/doctor2.png"></image>
              <text>疾病风险抢先知</text>
         </view>
         <view class="sl-col">
@@ -23,7 +23,7 @@ enable-back-to-top="true" bindscrolltolower="bindDownLoad">
             <text>量身打造保险配置</text>
         </view>
         <view class="sl-col">
-             <image class="second-img" mode="scaleToFill" src="/images/store.png"></image>
+             <image class="second-img" mode="scaleToFill" src="/images/redpacket.png"></image>
              <text>每日打卡赢红包</text>
         </view>
     </view>
