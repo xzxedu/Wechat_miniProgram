@@ -16,7 +16,7 @@
 
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
-
+USE quant;
 -- ----------------------------
 --  Table structure for `cSessionInfo`
 -- ----------------------------
