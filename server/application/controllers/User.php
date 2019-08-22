@@ -1,13 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-use \QCloud_WeApp_SDK\Auth\LoginService as LoginService;
+use QCloud_WeApp_SDK\Auth\LoginService as LoginService;
 use QCloud_WeApp_SDK\Constants as Constants;
-
-class User extends CI_Controller {
+class Login extends CI_Controller {
     public function index() {
-        $result = LoginService::check();
-
+        $result = LoginService::login();
+        
         if ($result['loginState'] === Constants::S_AUTH) {
             $this->json([
                 'code' => 0,
@@ -16,7 +14,7 @@ class User extends CI_Controller {
         } else {
             $this->json([
                 'code' => -1,
-                'data' => []
+                'error' => $result['error']
             ]);
         }
     }

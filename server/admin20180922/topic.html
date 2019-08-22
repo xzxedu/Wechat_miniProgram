@@ -1,0 +1,196 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <style type="text/css">
+    .imgArea input {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    h2 {
+      text-align: center;
+      font-weight: 400;
+      color: #1f2f3d;
+      font-size: 28px;
+      margin: 0;
+    }
+
+    h3 {
+      margin: 55px 0 20px;
+      font-weight: 400;
+      color: #3c9734;
+      font-size: 22px;
+      display: block;
+      -webkit-margin-before: 1em;
+      -webkit-margin-after: 1em;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" style="width: 80%;margin: 0 auto;">
+    <h2>活动详细</h2>
+
+    <el-row>
+      <div class="grid-content">
+        <img :src="currentTopic.logo_url" style="margin: 6px;" v-if="currentTopic.logo_url != ''">
+      </div>
+    </el-row>
+
+    <el-row>
+      <div class="grid-content">
+        <h3>名称</h3>
+        {{currentTopic.name}}
+      </div>
+    </el-row>
+
+    <el-row>
+      <div class="grid-content">
+        <h3>开始时间</h3>
+        {{currentTopic.start_date}}
+      </div>
+    </el-row>
+    <el-row>
+      <h3>简介</h3>
+      <div class="grid-content">
+        <div v-html="currentTopic.introduction"></div>
+      </div>
+    </el-row>
+
+    <template v-for="(item, index) in currentTopic.content">
+      <el-row v-if="item.type === 'txt'">
+        <div class="grid-content">
+          {{item.content}}
+        </div>
+      </el-row>
+
+      <el-row v-if="item.type === 'img'">
+        <div class="grid-content">
+          <img :src="item.content" style="margin: 6px;" v-if="item.content != ''">
+        </div>
+      </el-row>
+
+      <el-row v-if="item.type === 'audio'">
+        <div class="grid-content">
+          <audio :src="item.content" controls="controls" style="margin: 6px;" v-if="item.content != ''">
+          </audio>
+        </div>
+      </el-row>
+
+      <el-row v-if="item.type === 'video'">
+        <div class="grid-content">
+          <video :src="item.content" controls="controls" style="margin: 6px;" v-if="item.content != ''">
+          </video>
+        </div>
+      </el-row>
+
+      <el-row v-if="item.type === 'followPair'">
+        <template v-for="(itemFollow, indexFollow) in item.content">
+          <el-row v-if="itemFollow.type === 'fTxt'">
+            <div class="grid-content">原文：{{itemFollow.content}}
+            </div>
+          </el-row>
+
+          <el-row label="添加译文" v-if="itemFollow.type === 'mTxt'">
+            <div class="grid-content">译文：{{itemFollow.content}}
+            </div>
+          </el-row>
+
+          <el-row v-if="itemFollow.type === 'audio'">
+            <div class="grid-content">
+              <audio :src="itemFollow.content" controls="controls" style="margin: 6px;" v-if="itemFollow.content != ''">
+              </audio>
+            </div>
+            </el-form-item>
+            <el-row v-if="itemFollow.type === 'video'">
+              <div class="grid-content">
+                <video :src="itemFollow.content" controls="controls" style="margin: 6px;" v-if="itemFollow.content != ''">
+                </video>
+              </div>
+            </el-row>
+        </template>
+        </el-row>
+
+    </template>
+  </div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<!--<script src="https://unpkg.com/element-ui/lib/index.js"></script>-->
+<script src="https://unpkg.com/element-ui@2.3.4/lib/index.js"></script>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-quill-editor@3.0.4/dist/vue-quill-editor.js"></script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="cos-js-sdk-v5.min.js"></script>
+
+
+<script>  
+  Vue.use(VueQuillEditor);
+  var app = new Vue({
+    el: '#app',
+    data: {
+      currentTopic: {}
+    },
+    mounted: function () {
+      // `this` 指向 vm 实例
+      console.log('created');
+      var that = this;
+      var userId = sessionStorage.userId;
+      this.currentTopic = JSON.parse(sessionStorage.currentTopic);
+      this.currentTopic.content = JSON.parse(this.currentTopic.content);
+      console.log(this.currentTopic);
+
+    },
+    methods: {
+    },
+    computed: {
+    },
+  });
+
+  var config = {
+    Bucket: 'fe-1255989678',
+    Region: 'ap-beijing'
+  };
+
+  var prefix = 'https://' + config.Bucket + '.cos.' + config.Region + '.myqcloud.com/';
+  var getAuthorization = function (options, callback) {
+    var url = 'https://www.faithforfuture.com/api/sts.php';
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.onload = function (e) {
+      try {
+        var data = JSON.parse(e.target.responseText);
+      } catch (e) {
+      }
+      callback({
+        TmpSecretId: data.credentials && data.credentials.tmpSecretId,
+        TmpSecretKey: data.credentials && data.credentials.tmpSecretKey,
+        XCosSecurityToken: data.credentials && data.credentials.sessionToken,
+        ExpiredTime: data.expiredTime,
+      });
+    };
+    xhr.send();
+  }
+
+  var cos = new COS({
+    getAuthorization: getAuthorization,
+  });
+
+</script>
+
+</html>

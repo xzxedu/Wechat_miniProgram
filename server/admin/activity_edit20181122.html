@@ -1,0 +1,474 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <style type="text/css">
+    .imgArea input {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 5;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" style="width: 80%;margin: 0 auto;">
+    <h1 style="text-align: center">修改活动</h1>
+    <el-form :model="form" :rules="rules" ref="form" label-width="100px">
+      <el-form-item label="活动名称" prop="name">
+        <el-input v-model="form.name"></el-input>
+      </el-form-item>
+      <el-form-item label="活动宣传语" prop="region">
+        <el-input v-model="form.tagline"></el-input>
+      </el-form-item>
+      <el-form-item label="日期" required>
+        <el-col :span="5">
+          <el-form-item prop="startDate">
+            <el-date-picker type="date" placeholder="选择开始日期" v-model="form.startDate" style="width: 100%;"></el-date-picker>
+          </el-form-item>
+        </el-col>
+        <el-col class="line" :span="1" style="text-align: center;">-</el-col>
+        <el-col :span="5">
+          <el-form-item prop="endDate">
+            <el-date-picker type="date" placeholder="选择结束日期" v-model="form.endDate" style="width: 100%;"></el-date-picker>
+          </el-form-item>
+        </el-col>
+      </el-form-item>
+      <el-form-item label="分类">
+        <el-select v-model="form.group_id" placeholder="请选择" >
+          <el-option v-for="itemGroup in groupOptions" :key="itemGroup.value" :label="itemGroup.label" :value="itemGroup.value">
+          </el-option>
+        </el-select>
+      </el-form-item>
+      <el-form-item label="活动人数">
+        <el-row>
+          <el-col :span="6" style="width: 187px;">
+            <el-radio class="radio" v-model="form.activeUserNumLimit" label="无限制">无限制</el-radio>
+            <el-radio class="radio" v-model="form.activeUserNumLimit" label="限制">限制</el-radio>
+          </el-col>
+          <el-col :span="6">
+            <el-input placeholder="0" :number="true" size="large" v-model="form.userNumLimit" :disabled=" form.activeUserNumLimit == '无限制' ">
+              <template slot="append">人</template>
+            </el-input>
+          </el-col>
+        </el-row>
+      </el-form-item>
+
+      <el-form-item label="标题图片">
+        <div class="imgArea">
+          <input id="file-selector" type="file" accept="image/gif,image/jpeg,image/jpg,image/png" @change="uploadLogoImage($event)">
+          <el-button type="primary ">点击上传</el-button>
+        </div>
+        <img :src="form.logoUrl" style="margin: 6px;" v-if="form.logoUrl != ''">
+      </el-form-item>
+
+      <el-form-item label="简介">
+        <quill-editor v-model="form.introduction" ref="quillEditorA" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
+          @ready="onEditorReady($event)" style="height: 300px;margin-bottom: 60px">
+        </quill-editor>
+        <!--<div class="content ql-editor" v-html="form.introduction"></div>-->
+      </el-form-item>
+
+      <template v-for="(item, index) in form.activityInfo">
+        <el-form-item label="添加文字" v-if="item.type === 'txt'">
+          <!--<el-input v-model="item.content " type="textarea" :rows="2" placeholder="请输入内容"></el-input>-->
+          <quill-editor v-model="item.content" ref="quillEditorA" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
+            @ready="onEditorReady($event)" style="height: 300px;margin-bottom: 60px"></quill-editor>
+          <div style="margin-top: 6px;margin-right: 3px;float: right;">
+            <el-button @click="onUp(index) ">上移</el-button>
+            <el-button @click="onDown(index) ">下移</el-button>
+            <el-button @click="onRemove(index) ">删除</el-button>
+          </div>
+        </el-form-item>
+        <el-form-item label="添加图片" v-if="item.type === 'img'">
+          <div class="imgArea">
+            <input :id="'img'+index" type="file" accept="image/gif,image/jpeg,image/jpg,image/png" @change="upload($event,item)">
+            <el-button type="primary ">点击上传图片</el-button>
+          </div>
+          <img :src="item.content" style="margin: 6px;" v-if="item.content != ''">
+          <div style="margin-top: 6px;margin-right: 3px;float: right;">
+            <el-button @click="onUp(index) ">上移</el-button>
+            <el-button @clickt="onDown(index) ">下移</el-button>
+            <el-button @click="onRemove(index) ">删除</el-button>
+          </div>
+        </el-form-item>
+        <el-form-item label="添加音频" v-if="item.type === 'audio'">
+          <div class="imgArea">
+            <input id="file-selector" type="file" accept="audio/mp3" @change="upload($event,item)">
+            <el-button type="primary ">点击上传音频</el-button>
+          </div>
+          <audio :src="item.content" controls="controls" style="margin: 6px;" v-if="item.content != ''">
+          </audio>
+          <div style="margin-top: 6px;margin-right: 3px;float: right;">
+            <el-button @click="onUp(index) ">上移</el-button>
+            <el-button @click="onDown(index) ">下移</el-button>
+            <el-button @click="onRemove(index) ">删除</el-button>
+          </div>
+        </el-form-item>
+        <el-form-item label="添加视频" v-if="item.type === 'video'">
+          <div class="imgArea">
+            <input id="file-selector" type="file" accept="video/mp4" @change="upload($event,item)">
+            <el-button type="primary ">点击上传视频</el-button>
+          </div>
+          <video :src="item.content" controls="controls" style="margin: 6px;" v-if="item.content != ''">
+          </video>
+          <div style="margin-top: 6px;margin-right: 3px;float: right;">
+            <el-button @click="onUp(index) ">上移</el-button>
+            <el-button @click="onDown(index) ">下移</el-button>
+            <el-button @click="onRemove(index) ">删除</el-button>
+          </div>
+        </el-form-item>
+      </template>
+      <el-form-item>
+        <el-button type="primary " @click="onAddText ">添加文字</el-button>
+        <el-button type="primary " @click="onAddImage ">添加图片</el-button>
+        <el-button type="primary " @click="onAddAudio ">添加音频</el-button>
+        <el-button type="primary " @click="onAddVideo ">添加视频</el-button>
+        <!--<el-button type="primary " @click="onAddFtxtAudio ">添加文字音频</el-button>-->
+        <el-button type="primary" @click="submitForm('form')">立即更新</el-button>
+        <el-button @click="resetForm('form')">重置</el-button>
+      </el-form-item>
+    </el-form>
+  </div>
+</body>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<!--<script src="https://unpkg.com/element-ui/lib/index.js"></script>-->
+<script src="https://unpkg.com/element-ui@2.3.4/lib/index.js"></script>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-quill-editor@3.0.4/dist/vue-quill-editor.js"></script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="cos-js-sdk-v5.min.js"></script>
+
+
+<script>
+  var toolbarOptions = [
+    ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+    ['blockquote', 'code-block'],
+
+    [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+    [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+    [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
+    [{ 'direction': 'rtl' }],                         // text direction
+
+    [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+    [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+    [{ 'font': [] }],
+    [{ 'align': [] }],
+
+    ['clean']                                         // remove formatting button
+  ];
+
+  var formatDate = function (date) {
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    m = m < 10 ? '0' + m : m;
+    var d = date.getDate();
+    d = d < 10 ? ('0' + d) : d;
+    return y + '-' + m + '-' + d;
+  };
+
+  Vue.use(VueQuillEditor);
+  var app = new Vue({
+    el: '#app',
+    data: {
+      form: {
+        name: '',
+        tagline: '',
+        startDate: '',
+        endDate: '',
+        activeUserNumLimit: '',
+        userNumLimit: '',
+        logoUrl: '',
+        introduction: '<h2>I am Example A</h2>',
+        activityInfo: [],
+        activityInfoDemo: [
+          { type: "txt", content: "123456" },
+          { type: "img", content: "../reading/images/btn_read_homework.png" },
+          { type: "txt", content: "english" },
+          { type: "audio", content: "https://fe-1255989678.cos.ap-beijing.myqcloud.com/1.mp3" },
+          { type: "video", content: "https://fe-1255989678.cos.ap-beijing.myqcloud.com/1.mp4" }
+        ],
+        group_id:"",
+      },
+      currentActivityId: -1,
+      rules: {
+        name: [
+          { required: true, message: '请输入活动名称', trigger: 'blur' },
+          { min: 3, max: 60, message: '长度在 3 到 60 个字符', trigger: 'blur' }
+        ]
+      },
+      editorOption: {
+        modules: {
+          toolbar: toolbarOptions
+        },
+        theme: 'snow'
+      },
+      groupOptions: [{
+          value: '1',
+          label: '跟读'
+        }, {
+          value: '2',
+          label: '阅读'
+        }, {
+          value: '3',
+          label: '同步课程'
+        }, {
+          value: '4',
+          label: '听力'
+        }]
+    },
+    components: {
+      LocalQuillEditor: VueQuillEditor.quillEditor
+    },
+    mounted: function () {
+      // `this` 指向 vm 实例
+      console.log('created');
+      var userId = sessionStorage.userId;
+      var currentActivity = JSON.parse(sessionStorage.currentActivity);
+
+      this.currentActivityId = currentActivity.id;
+
+      this.form.name = currentActivity.name;
+      this.form.tagline = currentActivity.tagline;
+      this.form.logoUrl = currentActivity.logo_url;
+      console.log(currentActivity.start_date);
+      this.form.startDate = new Date(currentActivity.start_date);
+      console.log(this.form.startDate);
+      console.log(currentActivity.end_date);
+      this.form.endDate = new Date(currentActivity.end_date);
+      console.log(this.form.endDate);
+      this.form.userNumLimit = currentActivity.user_num_limit;
+      this.form.introduction = currentActivity.introduction;
+      this.form.activityInfo = JSON.parse(currentActivity.content);
+      this.form.group_id = currentActivity.group_id;
+
+      console.log(currentActivity);
+    },
+    methods: {
+      uploadLogoImage(e) {
+        console.log("upload logo image");
+        var that = this;
+        var userId = sessionStorage.userId;
+        var file = e.target.files[0];
+
+        if (!file) return;
+
+        //分片上传文件
+        cos.sliceUploadFile({
+          Bucket: config.Bucket,
+          Region: config.Region,
+          Key: userId + "_" + file.name,
+          Body: file,
+          TaskReady: function (tid) {
+            TaskId = tid;
+          },
+          onProgress: function (progressData) {
+            console.log(JSON.stringify(progressData));
+          },
+        }, function (err, data) {
+          console.log(err, data);
+          if(data)
+          {
+            that.form.logoUrl =  'https://' + data.Location; 
+          }
+          //that.form.logoUrl = prefix + userId + "_" + file.name;
+        });
+        console.log(this.form);
+      },
+      upload(e, item) {
+        console.log("upload");
+        console.log(item);
+        var that = this;
+        var userId = sessionStorage.userId;
+        var file = e.target.files[0];
+
+        var t = new Date();
+
+        var filename = userId + "_" + + t.getTime() + "_" + file.name;
+
+        console.log(name);
+        
+        //分片上传文件            
+        cos.sliceUploadFile({
+          Bucket: config.Bucket,
+          Region: config.Region,
+          Key: filename,
+          Body: file,
+          TaskReady: function (tid) {
+            TaskId = tid;
+          },
+          onProgress: function (progressData) {
+            console.log(JSON.stringify(progressData));
+          },
+        }, function (err, data) {
+          console.log(err, data);
+          if(data)
+          {
+            item.content =  'https://' + data.Location; 
+          }
+            
+            //item.content = prefix + userId + "_" + file.name;
+        });
+
+        //item.content = prefix + file.name;
+        //console.log(this.form);
+      },
+      onUp(index) {
+        if (index === 0) return;
+        var tmp = this.form.activityInfo[index - 1];
+        console.log("index:" + index);
+        this.$set(this.form.activityInfo, index - 1, this.form.activityInfo[index]);
+        this.$set(this.form.activityInfo, index, tmp);
+        console.log(this.form.activityInfo);
+      },
+      onDown(index) {
+        if (index === this.form.activityInfo.length - 1) return;
+        var tmp = this.form.activityInfo[index + 1];
+        this.$set(this.form.activityInfo, index + 1, this.form.activityInfo[index]);
+        this.$set(this.form.activityInfo, index, tmp);
+        console.log(this.form.activityInfo);
+      },
+      onRemove(index) {
+        this.form.activityInfo.splice(index, 1);
+      },
+      onAddText() {
+        this.form.activityInfo.push({ type: "txt", content: "" });
+      },
+      onAddImage() {
+        this.form.activityInfo.push({ type: "img", content: "" });
+      },
+      onAddAudio() {
+        this.form.activityInfo.push({ type: "audio", content: "" });
+      },
+      onAddVideo() {
+        this.form.activityInfo.push({ type: "video", content: "" });
+      },
+      submitForm(formName) {
+        console.log(this.form.activityInfo);
+        console.log(this.form);
+        var that = this;
+        var id = this.currentActivityId;
+        var userId = sessionStorage.userId;
+        var name = this.form.name;
+        var tagline = this.form.tagline;
+        var logoUrl = this.form.logoUrl;
+        var introduction = this.form.introduction;        
+        var startDate = formatDate(this.form.startDate);
+        console.log(startDate);
+        var endDate = formatDate(this.form.endDate);
+        var userNumLimit = this.form.userNumLimit;
+        var content = JSON.stringify(this.form.activityInfo);
+        var group_id = this.form.group_id;
+        axios({
+          //url: '/weapp/index.php/WebActivity/update',
+          url: '/weapp/WebActivity/update',
+          method: 'post',
+          data: {
+            id: id,
+            userId: userId,
+            name: name,
+            logoUrl: logoUrl,
+            tagline: tagline,
+            introduction: introduction,
+            startDate: startDate,
+            endDate: endDate,
+            userNumLimit: userNumLimit,
+            content: content,
+            group_id: group_id
+          },
+          timeout: 1000,
+          transformRequest: [function (data) {
+            // Do whatever you want to transform the data
+            let ret = ''
+            for (let it in data) {
+              ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+            }
+            return ret
+          }],
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        })
+          .then(function (response) {
+
+            //var res = JSON.parse(response);
+            console.log("response" + response.data.code);
+            if (response.data.code === 0) {
+              console.log(response.data);
+              that.activityList = response.data.data;
+              console.log(that.activityList);
+              //window.location = "activity.html";
+            }
+
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      },
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      },
+      onEditorBlur(quill) {
+        console.log('editor blur!', quill)
+      },
+      onEditorFocus(quill) {
+        console.log('editor focus!', quill)
+      },
+      onEditorReady(quill) {
+        console.log('editor ready!', quill)
+      }
+    },
+    computed: {
+      editorA() {
+        return this.$refs.quillEditorA.quill
+      }
+    },
+  });
+
+  var config = {
+    Bucket: 'fe-1255989678',
+    Region: 'ap-beijing'
+  };
+
+  var prefix = 'https://' + config.Bucket + '.cos.' + config.Region + '.myqcloud.com/';
+  var getAuthorization = function (options, callback) {
+    var url = 'https://www.faithforfuture.com/api/sts.php';
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.onload = function (e) {
+      try {
+        var data = JSON.parse(e.target.responseText);
+      } catch (e) {
+      }
+      callback({
+        TmpSecretId: data.credentials && data.credentials.tmpSecretId,
+        TmpSecretKey: data.credentials && data.credentials.tmpSecretKey,
+        XCosSecurityToken: data.credentials && data.credentials.sessionToken,
+        ExpiredTime: data.expiredTime,
+      });
+    };
+    xhr.send();
+  }
+
+  var cos = new COS({
+    getAuthorization: getAuthorization,
+  });
+
+</script>
+
+</html>

@@ -31,11 +31,11 @@ class Conf {
     
     // 数据库配置信息
     private static $Mysql = [
-        'host' => 'localhost',
+        'host' => '172.27.0.10',
         'port' => 3306,
         'user' => 'root',
-        'db'   => 'cAuth',
-        'pass' => '',
+        'db'   => 'xzx',
+        'pass' => 'wechatdemo123',
         'char' => 'utf8mb4'
     ];
     

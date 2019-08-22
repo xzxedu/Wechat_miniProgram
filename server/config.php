@@ -21,11 +21,11 @@ $config = [
      * 开发环境下，MySQL 的初始密码为您的微信小程序 AppID
      */
     'mysql' => [
-        'host' => 'localhost',
+        'host' => '172.27.0.9',
         'port' => 3306,
         'user' => 'root',
-        'db'   => 'cAuth',
-        'pass' => 'wx76aec7d8d5f5083f',
+        'db'   => 'quant',
+        'pass' => 'wechatdemo123',
         'char' => 'utf8mb4'
     ],
 
@@ -40,12 +40,25 @@ $config = [
          * 新加坡：sg
          * @see https://www.qcloud.com/document/product/436/6224
          */
-        'region' => 'cn-sorth',
+        'region' => 'ap-beijing',
         // Bucket 名称
-        'fileBucket' => 'wafer',
+        'fileBucket' => 'fe-1255989678',
         // 文件夹
         'uploadFolder' => ''
     ],
+
+    'serverHost' => 'https://xzx.faithforfuture.com',
+    'tunnelServerUrl' => 'http://tunnel.ws.qcloud.la',
+    'tunnelSignatureKey' => '27fb7d1c161b7ca52d73cce0f1d833f9f5b5ec89', //tunnelSignatureKey 修改成自己的签名秘钥，随便自己定义一个就行
+      // 腾讯云相关配置可以查看云 API 秘钥控制台：https://console.cloud.tencent.com/capi
+    'qcloudAppId' => 1255989678,// 必须是数字
+    'qcloudSecretId' => 'AKIDGNJ3ZtJw65rRpzkgIjvvkLhqlW2KkGtI',
+    'qcloudSecretKey' => 'KQL2UjmcDaidJk285pLejaCZjfNq57xY',
+
+
+    
+
+
 
     // 微信登录态有效期
     'wxLoginExpires' => 7200,

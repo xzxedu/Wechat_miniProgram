@@ -1,0 +1,63 @@
+INFO - 2019-08-01 23:20:31 --> Config Class Initialized
+INFO - 2019-08-01 23:20:31 --> Hooks Class Initialized
+DEBUG - 2019-08-01 23:20:31 --> UTF-8 Support Enabled
+INFO - 2019-08-01 23:20:31 --> Utf8 Class Initialized
+INFO - 2019-08-01 23:20:31 --> URI Class Initialized
+INFO - 2019-08-01 23:20:31 --> Router Class Initialized
+INFO - 2019-08-01 23:20:31 --> Output Class Initialized
+INFO - 2019-08-01 23:20:31 --> Security Class Initialized
+DEBUG - 2019-08-01 23:20:31 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-08-01 23:20:31 --> Input Class Initialized
+INFO - 2019-08-01 23:20:31 --> Language Class Initialized
+INFO - 2019-08-01 23:20:31 --> Loader Class Initialized
+INFO - 2019-08-01 23:20:31 --> Helper loaded: general_helper
+INFO - 2019-08-01 23:20:31 --> Controller Class Initialized
+INFO - 2019-08-01 23:20:31 --> Final output sent to browser
+DEBUG - 2019-08-01 23:20:31 --> Total execution time: 0.2899
+INFO - 2019-08-01 23:22:35 --> Config Class Initialized
+INFO - 2019-08-01 23:22:35 --> Hooks Class Initialized
+DEBUG - 2019-08-01 23:22:35 --> UTF-8 Support Enabled
+INFO - 2019-08-01 23:22:35 --> Utf8 Class Initialized
+INFO - 2019-08-01 23:22:35 --> URI Class Initialized
+INFO - 2019-08-01 23:22:35 --> Router Class Initialized
+INFO - 2019-08-01 23:22:35 --> Output Class Initialized
+INFO - 2019-08-01 23:22:35 --> Security Class Initialized
+DEBUG - 2019-08-01 23:22:35 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-08-01 23:22:35 --> Input Class Initialized
+INFO - 2019-08-01 23:22:35 --> Language Class Initialized
+INFO - 2019-08-01 23:22:35 --> Loader Class Initialized
+INFO - 2019-08-01 23:22:35 --> Helper loaded: general_helper
+INFO - 2019-08-01 23:22:35 --> Controller Class Initialized
+INFO - 2019-08-01 23:22:35 --> Final output sent to browser
+DEBUG - 2019-08-01 23:22:35 --> Total execution time: 0.2852
+INFO - 2019-08-01 23:25:21 --> Config Class Initialized
+INFO - 2019-08-01 23:25:21 --> Hooks Class Initialized
+DEBUG - 2019-08-01 23:25:21 --> UTF-8 Support Enabled
+INFO - 2019-08-01 23:25:21 --> Utf8 Class Initialized
+INFO - 2019-08-01 23:25:21 --> URI Class Initialized
+INFO - 2019-08-01 23:25:21 --> Router Class Initialized
+INFO - 2019-08-01 23:25:21 --> Output Class Initialized
+INFO - 2019-08-01 23:25:21 --> Security Class Initialized
+DEBUG - 2019-08-01 23:25:21 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-08-01 23:25:21 --> Input Class Initialized
+INFO - 2019-08-01 23:25:21 --> Language Class Initialized
+INFO - 2019-08-01 23:25:21 --> Loader Class Initialized
+INFO - 2019-08-01 23:25:21 --> Helper loaded: general_helper
+INFO - 2019-08-01 23:25:21 --> Controller Class Initialized
+ERROR - 2019-08-01 23:25:22 --> Severity: error --> Exception: E_EXEC_SQL_QUERY: Table 'xzx.gUser' doesn't exist /data/www/xzx/vendor/qcloud/weapp-sdk/lib/Mysql/Mysql.php 191
+INFO - 2019-08-01 23:31:14 --> Config Class Initialized
+INFO - 2019-08-01 23:31:14 --> Hooks Class Initialized
+DEBUG - 2019-08-01 23:31:14 --> UTF-8 Support Enabled
+INFO - 2019-08-01 23:31:14 --> Utf8 Class Initialized
+INFO - 2019-08-01 23:31:14 --> URI Class Initialized
+INFO - 2019-08-01 23:31:14 --> Router Class Initialized
+INFO - 2019-08-01 23:31:14 --> Output Class Initialized
+INFO - 2019-08-01 23:31:14 --> Security Class Initialized
+DEBUG - 2019-08-01 23:31:14 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-08-01 23:31:14 --> Input Class Initialized
+INFO - 2019-08-01 23:31:14 --> Language Class Initialized
+INFO - 2019-08-01 23:31:14 --> Loader Class Initialized
+INFO - 2019-08-01 23:31:14 --> Helper loaded: general_helper
+INFO - 2019-08-01 23:31:14 --> Controller Class Initialized
+INFO - 2019-08-01 23:31:14 --> Final output sent to browser
+DEBUG - 2019-08-01 23:31:14 --> Total execution time: 0.2914

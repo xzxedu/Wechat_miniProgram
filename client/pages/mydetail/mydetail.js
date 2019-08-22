@@ -19,7 +19,7 @@ Page({
         const session = qcloud.Session.get()
 
         if (session) {
-            qcloud.loginWithCode({
+            qcloud.login({
                 success: res => {
                     this.setData({ userInfo: res, logged: true })
                     util.showSuccess('登录成功')

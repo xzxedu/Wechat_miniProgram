@@ -1,0 +1,40 @@
+INFO - 2019-03-23 23:12:06 --> Config Class Initialized
+INFO - 2019-03-23 23:12:06 --> Hooks Class Initialized
+DEBUG - 2019-03-23 23:12:06 --> UTF-8 Support Enabled
+INFO - 2019-03-23 23:12:06 --> Utf8 Class Initialized
+INFO - 2019-03-23 23:12:06 --> URI Class Initialized
+INFO - 2019-03-23 23:12:06 --> Router Class Initialized
+INFO - 2019-03-23 23:12:06 --> Output Class Initialized
+INFO - 2019-03-23 23:12:06 --> Security Class Initialized
+DEBUG - 2019-03-23 23:12:06 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-23 23:12:06 --> Input Class Initialized
+INFO - 2019-03-23 23:12:06 --> Language Class Initialized
+ERROR - 2019-03-23 23:12:06 --> 404 Page Not Found: Weapp_feyx/login
+INFO - 2019-03-23 23:12:27 --> Config Class Initialized
+INFO - 2019-03-23 23:12:27 --> Hooks Class Initialized
+DEBUG - 2019-03-23 23:12:27 --> UTF-8 Support Enabled
+INFO - 2019-03-23 23:12:27 --> Utf8 Class Initialized
+INFO - 2019-03-23 23:12:27 --> URI Class Initialized
+INFO - 2019-03-23 23:12:27 --> Router Class Initialized
+INFO - 2019-03-23 23:12:27 --> Output Class Initialized
+INFO - 2019-03-23 23:12:27 --> Security Class Initialized
+DEBUG - 2019-03-23 23:12:27 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-23 23:12:27 --> Input Class Initialized
+INFO - 2019-03-23 23:12:27 --> Language Class Initialized
+ERROR - 2019-03-23 23:12:27 --> 404 Page Not Found: Weapp_feyx/login
+INFO - 2019-03-23 23:14:53 --> Config Class Initialized
+INFO - 2019-03-23 23:14:53 --> Hooks Class Initialized
+DEBUG - 2019-03-23 23:14:53 --> UTF-8 Support Enabled
+INFO - 2019-03-23 23:14:53 --> Utf8 Class Initialized
+INFO - 2019-03-23 23:14:53 --> URI Class Initialized
+INFO - 2019-03-23 23:14:53 --> Router Class Initialized
+INFO - 2019-03-23 23:14:53 --> Output Class Initialized
+INFO - 2019-03-23 23:14:53 --> Security Class Initialized
+DEBUG - 2019-03-23 23:14:53 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-23 23:14:53 --> Input Class Initialized
+INFO - 2019-03-23 23:14:53 --> Language Class Initialized
+INFO - 2019-03-23 23:14:53 --> Loader Class Initialized
+INFO - 2019-03-23 23:14:53 --> Helper loaded: general_helper
+INFO - 2019-03-23 23:14:53 --> Controller Class Initialized
+INFO - 2019-03-23 23:14:54 --> Final output sent to browser
+DEBUG - 2019-03-23 23:14:54 --> Total execution time: 0.2261

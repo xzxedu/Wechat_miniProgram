@@ -1,0 +1,695 @@
+INFO - 2019-03-24 09:29:35 --> Config Class Initialized
+INFO - 2019-03-24 09:29:35 --> Hooks Class Initialized
+DEBUG - 2019-03-24 09:29:35 --> UTF-8 Support Enabled
+INFO - 2019-03-24 09:29:35 --> Utf8 Class Initialized
+INFO - 2019-03-24 09:29:35 --> URI Class Initialized
+INFO - 2019-03-24 09:29:35 --> Router Class Initialized
+INFO - 2019-03-24 09:29:35 --> Output Class Initialized
+INFO - 2019-03-24 09:29:35 --> Security Class Initialized
+DEBUG - 2019-03-24 09:29:35 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 09:29:35 --> Input Class Initialized
+INFO - 2019-03-24 09:29:35 --> Language Class Initialized
+INFO - 2019-03-24 09:29:35 --> Loader Class Initialized
+INFO - 2019-03-24 09:29:35 --> Helper loaded: general_helper
+INFO - 2019-03-24 09:29:35 --> Controller Class Initialized
+INFO - 2019-03-24 09:29:35 --> Final output sent to browser
+DEBUG - 2019-03-24 09:29:35 --> Total execution time: 0.0127
+INFO - 2019-03-24 09:29:35 --> Config Class Initialized
+INFO - 2019-03-24 09:29:35 --> Hooks Class Initialized
+DEBUG - 2019-03-24 09:29:35 --> UTF-8 Support Enabled
+INFO - 2019-03-24 09:29:35 --> Utf8 Class Initialized
+INFO - 2019-03-24 09:29:35 --> URI Class Initialized
+INFO - 2019-03-24 09:29:35 --> Router Class Initialized
+INFO - 2019-03-24 09:29:35 --> Output Class Initialized
+INFO - 2019-03-24 09:29:35 --> Security Class Initialized
+DEBUG - 2019-03-24 09:29:35 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 09:29:35 --> Input Class Initialized
+INFO - 2019-03-24 09:29:35 --> Language Class Initialized
+INFO - 2019-03-24 09:29:35 --> Loader Class Initialized
+INFO - 2019-03-24 09:29:35 --> Helper loaded: general_helper
+INFO - 2019-03-24 09:29:35 --> Controller Class Initialized
+INFO - 2019-03-24 09:29:36 --> Final output sent to browser
+DEBUG - 2019-03-24 09:29:36 --> Total execution time: 0.2547
+INFO - 2019-03-24 09:29:36 --> Config Class Initialized
+INFO - 2019-03-24 09:29:36 --> Hooks Class Initialized
+DEBUG - 2019-03-24 09:29:36 --> UTF-8 Support Enabled
+INFO - 2019-03-24 09:29:36 --> Utf8 Class Initialized
+INFO - 2019-03-24 09:29:36 --> URI Class Initialized
+INFO - 2019-03-24 09:29:36 --> Router Class Initialized
+INFO - 2019-03-24 09:29:36 --> Output Class Initialized
+INFO - 2019-03-24 09:29:36 --> Security Class Initialized
+DEBUG - 2019-03-24 09:29:36 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 09:29:36 --> Input Class Initialized
+INFO - 2019-03-24 09:29:36 --> Language Class Initialized
+INFO - 2019-03-24 09:29:36 --> Loader Class Initialized
+INFO - 2019-03-24 09:29:36 --> Helper loaded: general_helper
+INFO - 2019-03-24 09:29:36 --> Controller Class Initialized
+INFO - 2019-03-24 09:29:36 --> Final output sent to browser
+DEBUG - 2019-03-24 09:29:36 --> Total execution time: 0.0128
+INFO - 2019-03-24 09:29:37 --> Config Class Initialized
+INFO - 2019-03-24 09:29:37 --> Hooks Class Initialized
+DEBUG - 2019-03-24 09:29:37 --> UTF-8 Support Enabled
+INFO - 2019-03-24 09:29:37 --> Utf8 Class Initialized
+INFO - 2019-03-24 09:29:37 --> URI Class Initialized
+INFO - 2019-03-24 09:29:37 --> Router Class Initialized
+INFO - 2019-03-24 09:29:37 --> Output Class Initialized
+INFO - 2019-03-24 09:29:37 --> Security Class Initialized
+DEBUG - 2019-03-24 09:29:37 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 09:29:37 --> Input Class Initialized
+INFO - 2019-03-24 09:29:37 --> Language Class Initialized
+INFO - 2019-03-24 09:29:37 --> Loader Class Initialized
+INFO - 2019-03-24 09:29:37 --> Helper loaded: general_helper
+INFO - 2019-03-24 09:29:37 --> Controller Class Initialized
+INFO - 2019-03-24 09:29:37 --> Final output sent to browser
+DEBUG - 2019-03-24 09:29:37 --> Total execution time: 0.0129
+INFO - 2019-03-24 09:29:37 --> Config Class Initialized
+INFO - 2019-03-24 09:29:37 --> Hooks Class Initialized
+DEBUG - 2019-03-24 09:29:37 --> UTF-8 Support Enabled
+INFO - 2019-03-24 09:29:37 --> Utf8 Class Initialized
+INFO - 2019-03-24 09:29:37 --> URI Class Initialized
+INFO - 2019-03-24 09:29:37 --> Router Class Initialized
+INFO - 2019-03-24 09:29:37 --> Output Class Initialized
+INFO - 2019-03-24 09:29:37 --> Security Class Initialized
+DEBUG - 2019-03-24 09:29:37 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 09:29:37 --> Input Class Initialized
+INFO - 2019-03-24 09:29:37 --> Language Class Initialized
+INFO - 2019-03-24 09:29:37 --> Loader Class Initialized
+INFO - 2019-03-24 09:29:37 --> Helper loaded: general_helper
+INFO - 2019-03-24 09:29:37 --> Controller Class Initialized
+INFO - 2019-03-24 09:29:37 --> Final output sent to browser
+DEBUG - 2019-03-24 09:29:37 --> Total execution time: 0.0116
+INFO - 2019-03-24 09:29:37 --> Config Class Initialized
+INFO - 2019-03-24 09:29:37 --> Hooks Class Initialized
+DEBUG - 2019-03-24 09:29:37 --> UTF-8 Support Enabled
+INFO - 2019-03-24 09:29:37 --> Utf8 Class Initialized
+INFO - 2019-03-24 09:29:37 --> URI Class Initialized
+INFO - 2019-03-24 09:29:37 --> Router Class Initialized
+INFO - 2019-03-24 09:29:37 --> Output Class Initialized
+INFO - 2019-03-24 09:29:37 --> Security Class Initialized
+DEBUG - 2019-03-24 09:29:37 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 09:29:37 --> Input Class Initialized
+INFO - 2019-03-24 09:29:37 --> Language Class Initialized
+INFO - 2019-03-24 09:29:37 --> Loader Class Initialized
+INFO - 2019-03-24 09:29:37 --> Helper loaded: general_helper
+INFO - 2019-03-24 09:29:37 --> Controller Class Initialized
+ERROR - 2019-03-24 09:29:37 --> array(0) {
+}
+
+INFO - 2019-03-24 09:29:37 --> Final output sent to browser
+DEBUG - 2019-03-24 09:29:37 --> Total execution time: 0.0114
+INFO - 2019-03-24 09:29:37 --> Config Class Initialized
+INFO - 2019-03-24 09:29:37 --> Hooks Class Initialized
+DEBUG - 2019-03-24 09:29:37 --> UTF-8 Support Enabled
+INFO - 2019-03-24 09:29:37 --> Utf8 Class Initialized
+INFO - 2019-03-24 09:29:37 --> URI Class Initialized
+INFO - 2019-03-24 09:29:37 --> Router Class Initialized
+INFO - 2019-03-24 09:29:37 --> Output Class Initialized
+INFO - 2019-03-24 09:29:37 --> Security Class Initialized
+DEBUG - 2019-03-24 09:29:37 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 09:29:37 --> Input Class Initialized
+INFO - 2019-03-24 09:29:37 --> Language Class Initialized
+INFO - 2019-03-24 09:29:37 --> Loader Class Initialized
+INFO - 2019-03-24 09:29:37 --> Helper loaded: general_helper
+INFO - 2019-03-24 09:29:37 --> Controller Class Initialized
+ERROR - 2019-03-24 09:29:37 --> array(0) {
+}
+
+INFO - 2019-03-24 09:29:37 --> Final output sent to browser
+DEBUG - 2019-03-24 09:29:37 --> Total execution time: 0.0119
+INFO - 2019-03-24 09:30:10 --> Config Class Initialized
+INFO - 2019-03-24 09:30:10 --> Hooks Class Initialized
+DEBUG - 2019-03-24 09:30:10 --> UTF-8 Support Enabled
+INFO - 2019-03-24 09:30:10 --> Utf8 Class Initialized
+INFO - 2019-03-24 09:30:10 --> URI Class Initialized
+INFO - 2019-03-24 09:30:10 --> Router Class Initialized
+INFO - 2019-03-24 09:30:10 --> Output Class Initialized
+INFO - 2019-03-24 09:30:10 --> Security Class Initialized
+DEBUG - 2019-03-24 09:30:10 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 09:30:10 --> Input Class Initialized
+INFO - 2019-03-24 09:30:10 --> Language Class Initialized
+INFO - 2019-03-24 09:30:10 --> Loader Class Initialized
+INFO - 2019-03-24 09:30:10 --> Helper loaded: general_helper
+INFO - 2019-03-24 09:30:10 --> Controller Class Initialized
+INFO - 2019-03-24 09:30:10 --> Final output sent to browser
+DEBUG - 2019-03-24 09:30:10 --> Total execution time: 0.0149
+INFO - 2019-03-24 09:30:11 --> Config Class Initialized
+INFO - 2019-03-24 09:30:11 --> Hooks Class Initialized
+DEBUG - 2019-03-24 09:30:11 --> UTF-8 Support Enabled
+INFO - 2019-03-24 09:30:11 --> Utf8 Class Initialized
+INFO - 2019-03-24 09:30:11 --> URI Class Initialized
+INFO - 2019-03-24 09:30:11 --> Router Class Initialized
+INFO - 2019-03-24 09:30:11 --> Output Class Initialized
+INFO - 2019-03-24 09:30:11 --> Security Class Initialized
+DEBUG - 2019-03-24 09:30:11 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 09:30:11 --> Input Class Initialized
+INFO - 2019-03-24 09:30:11 --> Language Class Initialized
+INFO - 2019-03-24 09:30:11 --> Loader Class Initialized
+INFO - 2019-03-24 09:30:11 --> Helper loaded: general_helper
+INFO - 2019-03-24 09:30:11 --> Controller Class Initialized
+INFO - 2019-03-24 09:30:11 --> Final output sent to browser
+DEBUG - 2019-03-24 09:30:11 --> Total execution time: 0.0125
+INFO - 2019-03-24 09:30:11 --> Config Class Initialized
+INFO - 2019-03-24 09:30:11 --> Hooks Class Initialized
+DEBUG - 2019-03-24 09:30:11 --> UTF-8 Support Enabled
+INFO - 2019-03-24 09:30:11 --> Utf8 Class Initialized
+INFO - 2019-03-24 09:30:11 --> URI Class Initialized
+INFO - 2019-03-24 09:30:11 --> Router Class Initialized
+INFO - 2019-03-24 09:30:11 --> Output Class Initialized
+INFO - 2019-03-24 09:30:11 --> Security Class Initialized
+DEBUG - 2019-03-24 09:30:11 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 09:30:11 --> Input Class Initialized
+INFO - 2019-03-24 09:30:11 --> Language Class Initialized
+INFO - 2019-03-24 09:30:11 --> Loader Class Initialized
+INFO - 2019-03-24 09:30:11 --> Helper loaded: general_helper
+INFO - 2019-03-24 09:30:11 --> Controller Class Initialized
+INFO - 2019-03-24 09:30:11 --> Final output sent to browser
+DEBUG - 2019-03-24 09:30:11 --> Total execution time: 0.0132
+INFO - 2019-03-24 09:30:11 --> Config Class Initialized
+INFO - 2019-03-24 09:30:11 --> Hooks Class Initialized
+DEBUG - 2019-03-24 09:30:11 --> UTF-8 Support Enabled
+INFO - 2019-03-24 09:30:11 --> Utf8 Class Initialized
+INFO - 2019-03-24 09:30:11 --> URI Class Initialized
+INFO - 2019-03-24 09:30:11 --> Config Class Initialized
+INFO - 2019-03-24 09:30:11 --> Hooks Class Initialized
+INFO - 2019-03-24 09:30:11 --> Router Class Initialized
+INFO - 2019-03-24 09:30:11 --> Output Class Initialized
+DEBUG - 2019-03-24 09:30:11 --> UTF-8 Support Enabled
+INFO - 2019-03-24 09:30:11 --> Utf8 Class Initialized
+INFO - 2019-03-24 09:30:11 --> Security Class Initialized
+INFO - 2019-03-24 09:30:11 --> URI Class Initialized
+DEBUG - 2019-03-24 09:30:11 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 09:30:11 --> Input Class Initialized
+INFO - 2019-03-24 09:30:11 --> Language Class Initialized
+INFO - 2019-03-24 09:30:11 --> Router Class Initialized
+INFO - 2019-03-24 09:30:11 --> Loader Class Initialized
+INFO - 2019-03-24 09:30:11 --> Output Class Initialized
+INFO - 2019-03-24 09:30:11 --> Helper loaded: general_helper
+INFO - 2019-03-24 09:30:11 --> Controller Class Initialized
+INFO - 2019-03-24 09:30:11 --> Security Class Initialized
+DEBUG - 2019-03-24 09:30:11 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 09:30:11 --> Input Class Initialized
+INFO - 2019-03-24 09:30:11 --> Language Class Initialized
+ERROR - 2019-03-24 09:30:11 --> array(0) {
+}
+
+INFO - 2019-03-24 09:30:11 --> Final output sent to browser
+DEBUG - 2019-03-24 09:30:11 --> Total execution time: 0.0115
+INFO - 2019-03-24 09:30:11 --> Loader Class Initialized
+INFO - 2019-03-24 09:30:11 --> Helper loaded: general_helper
+INFO - 2019-03-24 09:30:11 --> Controller Class Initialized
+ERROR - 2019-03-24 09:30:11 --> array(0) {
+}
+
+INFO - 2019-03-24 09:30:11 --> Final output sent to browser
+DEBUG - 2019-03-24 09:30:11 --> Total execution time: 0.0160
+INFO - 2019-03-24 11:36:18 --> Config Class Initialized
+INFO - 2019-03-24 11:36:18 --> Hooks Class Initialized
+DEBUG - 2019-03-24 11:36:18 --> UTF-8 Support Enabled
+INFO - 2019-03-24 11:36:18 --> Utf8 Class Initialized
+INFO - 2019-03-24 11:36:18 --> URI Class Initialized
+INFO - 2019-03-24 11:36:18 --> Router Class Initialized
+INFO - 2019-03-24 11:36:18 --> Output Class Initialized
+INFO - 2019-03-24 11:36:18 --> Security Class Initialized
+DEBUG - 2019-03-24 11:36:18 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 11:36:18 --> Input Class Initialized
+INFO - 2019-03-24 11:36:18 --> Language Class Initialized
+INFO - 2019-03-24 11:36:18 --> Loader Class Initialized
+INFO - 2019-03-24 11:36:18 --> Helper loaded: general_helper
+INFO - 2019-03-24 11:36:18 --> Controller Class Initialized
+ERROR - 2019-03-24 11:36:18 --> user_id1
+ERROR - 2019-03-24 11:36:18 --> passwordc0848b126c09ef13e900a1b3c29858f8
+ERROR - 2019-03-24 11:36:18 --> Severity: Notice --> Trying to get property of non-object /data/release/fe_yanxue/application/controllers/WebLogin.php 24
+ERROR - 2019-03-24 11:36:18 --> user password
+ERROR - 2019-03-24 11:36:18 --> Severity: Notice --> Trying to get property of non-object /data/release/fe_yanxue/application/controllers/WebLogin.php 27
+INFO - 2019-03-24 11:36:18 --> Final output sent to browser
+DEBUG - 2019-03-24 11:36:18 --> Total execution time: 0.0124
+INFO - 2019-03-24 11:36:23 --> Config Class Initialized
+INFO - 2019-03-24 11:36:23 --> Hooks Class Initialized
+DEBUG - 2019-03-24 11:36:23 --> UTF-8 Support Enabled
+INFO - 2019-03-24 11:36:23 --> Utf8 Class Initialized
+INFO - 2019-03-24 11:36:23 --> URI Class Initialized
+INFO - 2019-03-24 11:36:23 --> Router Class Initialized
+INFO - 2019-03-24 11:36:23 --> Output Class Initialized
+INFO - 2019-03-24 11:36:23 --> Security Class Initialized
+DEBUG - 2019-03-24 11:36:23 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 11:36:23 --> Input Class Initialized
+INFO - 2019-03-24 11:36:23 --> Language Class Initialized
+INFO - 2019-03-24 11:36:23 --> Loader Class Initialized
+INFO - 2019-03-24 11:36:23 --> Helper loaded: general_helper
+INFO - 2019-03-24 11:36:23 --> Controller Class Initialized
+ERROR - 2019-03-24 11:36:23 --> user_id1
+ERROR - 2019-03-24 11:36:23 --> passwordc0848b126c09ef13e900a1b3c29858f8
+ERROR - 2019-03-24 11:36:23 --> Severity: Notice --> Trying to get property of non-object /data/release/fe_yanxue/application/controllers/WebLogin.php 24
+ERROR - 2019-03-24 11:36:23 --> user password
+ERROR - 2019-03-24 11:36:23 --> Severity: Notice --> Trying to get property of non-object /data/release/fe_yanxue/application/controllers/WebLogin.php 27
+INFO - 2019-03-24 11:36:23 --> Final output sent to browser
+DEBUG - 2019-03-24 11:36:23 --> Total execution time: 0.0108
+INFO - 2019-03-24 12:35:38 --> Config Class Initialized
+INFO - 2019-03-24 12:35:38 --> Hooks Class Initialized
+DEBUG - 2019-03-24 12:35:38 --> UTF-8 Support Enabled
+INFO - 2019-03-24 12:35:38 --> Utf8 Class Initialized
+INFO - 2019-03-24 12:35:38 --> URI Class Initialized
+INFO - 2019-03-24 12:35:38 --> Router Class Initialized
+INFO - 2019-03-24 12:35:38 --> Output Class Initialized
+INFO - 2019-03-24 12:35:38 --> Security Class Initialized
+DEBUG - 2019-03-24 12:35:38 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 12:35:38 --> Input Class Initialized
+INFO - 2019-03-24 12:35:38 --> Language Class Initialized
+INFO - 2019-03-24 12:35:38 --> Loader Class Initialized
+INFO - 2019-03-24 12:35:38 --> Helper loaded: general_helper
+INFO - 2019-03-24 12:35:38 --> Controller Class Initialized
+ERROR - 2019-03-24 12:35:38 --> user_id1
+ERROR - 2019-03-24 12:35:38 --> passwordc0848b126c09ef13e900a1b3c29858f8
+ERROR - 2019-03-24 12:35:38 --> user passwordc0848b126c09ef13e900a1b3c29858f8
+INFO - 2019-03-24 12:35:38 --> Final output sent to browser
+DEBUG - 2019-03-24 12:35:38 --> Total execution time: 0.0670
+INFO - 2019-03-24 12:36:07 --> Config Class Initialized
+INFO - 2019-03-24 12:36:07 --> Hooks Class Initialized
+DEBUG - 2019-03-24 12:36:07 --> UTF-8 Support Enabled
+INFO - 2019-03-24 12:36:07 --> Utf8 Class Initialized
+INFO - 2019-03-24 12:36:07 --> URI Class Initialized
+INFO - 2019-03-24 12:36:07 --> Router Class Initialized
+INFO - 2019-03-24 12:36:07 --> Output Class Initialized
+INFO - 2019-03-24 12:36:07 --> Security Class Initialized
+DEBUG - 2019-03-24 12:36:07 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 12:36:07 --> Input Class Initialized
+INFO - 2019-03-24 12:36:07 --> Language Class Initialized
+INFO - 2019-03-24 12:36:07 --> Loader Class Initialized
+INFO - 2019-03-24 12:36:07 --> Helper loaded: general_helper
+INFO - 2019-03-24 12:36:07 --> Controller Class Initialized
+ERROR - 2019-03-24 12:36:07 --> user_id1
+INFO - 2019-03-24 12:36:07 --> Final output sent to browser
+DEBUG - 2019-03-24 12:36:07 --> Total execution time: 0.0104
+INFO - 2019-03-24 16:17:58 --> Config Class Initialized
+INFO - 2019-03-24 16:17:58 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:17:58 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:17:58 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:17:58 --> URI Class Initialized
+INFO - 2019-03-24 16:17:58 --> Router Class Initialized
+INFO - 2019-03-24 16:17:58 --> Output Class Initialized
+INFO - 2019-03-24 16:17:58 --> Security Class Initialized
+DEBUG - 2019-03-24 16:17:58 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:17:58 --> Input Class Initialized
+INFO - 2019-03-24 16:17:58 --> Language Class Initialized
+INFO - 2019-03-24 16:17:58 --> Loader Class Initialized
+INFO - 2019-03-24 16:17:58 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:17:58 --> Controller Class Initialized
+ERROR - 2019-03-24 16:17:58 --> userId1
+ERROR - 2019-03-24 16:17:58 --> nametest
+ERROR - 2019-03-24 16:17:58 --> logoUrlhttps://fe-1255989678.cos.ap-beijing.myqcloud.com/yanxue/1/1_nce1.jpg
+ERROR - 2019-03-24 16:17:58 --> logoVUrl
+ERROR - 2019-03-24 16:17:58 --> tagline1
+ERROR - 2019-03-24 16:17:58 --> introduction<h2>I am Example A</h2>
+ERROR - 2019-03-24 16:17:58 --> start_date2019-03-01
+ERROR - 2019-03-24 16:17:58 --> end_date2019-03-02
+ERROR - 2019-03-24 16:17:58 --> user_num_limit
+ERROR - 2019-03-24 16:17:58 --> content[]
+ERROR - 2019-03-24 16:17:58 --> group_id1
+ERROR - 2019-03-24 16:17:58 --> object(stdClass)#17 (1) {
+  ["lastid"]=>
+  string(2) "63"
+}
+
+INFO - 2019-03-24 16:17:58 --> Final output sent to browser
+DEBUG - 2019-03-24 16:17:58 --> Total execution time: 0.0117
+INFO - 2019-03-24 16:17:58 --> Config Class Initialized
+INFO - 2019-03-24 16:17:58 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:17:58 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:17:58 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:17:58 --> URI Class Initialized
+INFO - 2019-03-24 16:17:58 --> Router Class Initialized
+INFO - 2019-03-24 16:17:58 --> Output Class Initialized
+INFO - 2019-03-24 16:17:58 --> Security Class Initialized
+DEBUG - 2019-03-24 16:17:58 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:17:58 --> Input Class Initialized
+INFO - 2019-03-24 16:17:58 --> Language Class Initialized
+INFO - 2019-03-24 16:17:58 --> Loader Class Initialized
+INFO - 2019-03-24 16:17:58 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:17:58 --> Controller Class Initialized
+ERROR - 2019-03-24 16:17:58 --> user_id1
+INFO - 2019-03-24 16:17:58 --> Final output sent to browser
+DEBUG - 2019-03-24 16:17:58 --> Total execution time: 0.0122
+INFO - 2019-03-24 16:37:10 --> Config Class Initialized
+INFO - 2019-03-24 16:37:10 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:37:10 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:37:10 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:37:10 --> URI Class Initialized
+INFO - 2019-03-24 16:37:10 --> Router Class Initialized
+INFO - 2019-03-24 16:37:10 --> Output Class Initialized
+INFO - 2019-03-24 16:37:10 --> Security Class Initialized
+DEBUG - 2019-03-24 16:37:10 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:37:10 --> Input Class Initialized
+INFO - 2019-03-24 16:37:10 --> Language Class Initialized
+INFO - 2019-03-24 16:37:10 --> Loader Class Initialized
+INFO - 2019-03-24 16:37:10 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:37:10 --> Controller Class Initialized
+INFO - 2019-03-24 16:37:10 --> Final output sent to browser
+DEBUG - 2019-03-24 16:37:10 --> Total execution time: 0.0138
+INFO - 2019-03-24 16:37:11 --> Config Class Initialized
+INFO - 2019-03-24 16:37:11 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:37:11 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:37:11 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:37:11 --> URI Class Initialized
+INFO - 2019-03-24 16:37:11 --> Router Class Initialized
+INFO - 2019-03-24 16:37:11 --> Output Class Initialized
+INFO - 2019-03-24 16:37:11 --> Security Class Initialized
+DEBUG - 2019-03-24 16:37:11 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:37:11 --> Input Class Initialized
+INFO - 2019-03-24 16:37:11 --> Language Class Initialized
+INFO - 2019-03-24 16:37:11 --> Loader Class Initialized
+INFO - 2019-03-24 16:37:11 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:37:11 --> Controller Class Initialized
+INFO - 2019-03-24 16:37:11 --> Final output sent to browser
+DEBUG - 2019-03-24 16:37:11 --> Total execution time: 0.2615
+INFO - 2019-03-24 16:37:11 --> Config Class Initialized
+INFO - 2019-03-24 16:37:11 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:37:11 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:37:11 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:37:11 --> URI Class Initialized
+INFO - 2019-03-24 16:37:11 --> Router Class Initialized
+INFO - 2019-03-24 16:37:11 --> Output Class Initialized
+INFO - 2019-03-24 16:37:11 --> Security Class Initialized
+DEBUG - 2019-03-24 16:37:11 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:37:11 --> Input Class Initialized
+INFO - 2019-03-24 16:37:11 --> Language Class Initialized
+INFO - 2019-03-24 16:37:11 --> Loader Class Initialized
+INFO - 2019-03-24 16:37:11 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:37:11 --> Controller Class Initialized
+INFO - 2019-03-24 16:37:11 --> Final output sent to browser
+DEBUG - 2019-03-24 16:37:11 --> Total execution time: 0.0160
+INFO - 2019-03-24 16:37:11 --> Config Class Initialized
+INFO - 2019-03-24 16:37:11 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:37:11 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:37:11 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:37:11 --> URI Class Initialized
+INFO - 2019-03-24 16:37:11 --> Router Class Initialized
+INFO - 2019-03-24 16:37:11 --> Output Class Initialized
+INFO - 2019-03-24 16:37:11 --> Security Class Initialized
+DEBUG - 2019-03-24 16:37:11 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:37:11 --> Input Class Initialized
+INFO - 2019-03-24 16:37:11 --> Language Class Initialized
+INFO - 2019-03-24 16:37:11 --> Loader Class Initialized
+INFO - 2019-03-24 16:37:11 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:37:11 --> Controller Class Initialized
+INFO - 2019-03-24 16:37:11 --> Final output sent to browser
+DEBUG - 2019-03-24 16:37:11 --> Total execution time: 0.0131
+INFO - 2019-03-24 16:37:11 --> Config Class Initialized
+INFO - 2019-03-24 16:37:11 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:37:11 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:37:11 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:37:11 --> URI Class Initialized
+INFO - 2019-03-24 16:37:11 --> Router Class Initialized
+INFO - 2019-03-24 16:37:12 --> Output Class Initialized
+INFO - 2019-03-24 16:37:12 --> Security Class Initialized
+DEBUG - 2019-03-24 16:37:12 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:37:12 --> Input Class Initialized
+INFO - 2019-03-24 16:37:12 --> Language Class Initialized
+INFO - 2019-03-24 16:37:12 --> Loader Class Initialized
+INFO - 2019-03-24 16:37:12 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:37:12 --> Controller Class Initialized
+INFO - 2019-03-24 16:37:12 --> Final output sent to browser
+DEBUG - 2019-03-24 16:37:12 --> Total execution time: 0.0117
+INFO - 2019-03-24 16:37:12 --> Config Class Initialized
+INFO - 2019-03-24 16:37:12 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:37:12 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:37:12 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:37:12 --> URI Class Initialized
+INFO - 2019-03-24 16:37:12 --> Router Class Initialized
+INFO - 2019-03-24 16:37:12 --> Output Class Initialized
+INFO - 2019-03-24 16:37:12 --> Security Class Initialized
+DEBUG - 2019-03-24 16:37:12 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:37:12 --> Input Class Initialized
+INFO - 2019-03-24 16:37:12 --> Language Class Initialized
+INFO - 2019-03-24 16:37:12 --> Loader Class Initialized
+INFO - 2019-03-24 16:37:12 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:37:12 --> Controller Class Initialized
+ERROR - 2019-03-24 16:37:12 --> array(0) {
+}
+
+INFO - 2019-03-24 16:37:12 --> Final output sent to browser
+DEBUG - 2019-03-24 16:37:12 --> Total execution time: 0.0117
+INFO - 2019-03-24 16:37:12 --> Config Class Initialized
+INFO - 2019-03-24 16:37:12 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:37:12 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:37:12 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:37:12 --> URI Class Initialized
+INFO - 2019-03-24 16:37:12 --> Router Class Initialized
+INFO - 2019-03-24 16:37:12 --> Output Class Initialized
+INFO - 2019-03-24 16:37:12 --> Security Class Initialized
+DEBUG - 2019-03-24 16:37:12 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:37:12 --> Input Class Initialized
+INFO - 2019-03-24 16:37:12 --> Language Class Initialized
+INFO - 2019-03-24 16:37:12 --> Loader Class Initialized
+INFO - 2019-03-24 16:37:12 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:37:12 --> Controller Class Initialized
+ERROR - 2019-03-24 16:37:12 --> array(1) {
+  [0]=>
+  object(stdClass)#16 (2) {
+    ["activity_id"]=>
+    string(2) "63"
+    ["user_num"]=>
+    string(1) "1"
+  }
+}
+
+INFO - 2019-03-24 16:37:12 --> Final output sent to browser
+DEBUG - 2019-03-24 16:37:12 --> Total execution time: 0.0115
+INFO - 2019-03-24 16:49:59 --> Config Class Initialized
+INFO - 2019-03-24 16:49:59 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:49:59 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:49:59 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:49:59 --> URI Class Initialized
+INFO - 2019-03-24 16:49:59 --> Router Class Initialized
+INFO - 2019-03-24 16:49:59 --> Output Class Initialized
+INFO - 2019-03-24 16:49:59 --> Security Class Initialized
+DEBUG - 2019-03-24 16:49:59 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:49:59 --> Input Class Initialized
+INFO - 2019-03-24 16:49:59 --> Language Class Initialized
+INFO - 2019-03-24 16:49:59 --> Loader Class Initialized
+INFO - 2019-03-24 16:49:59 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:49:59 --> Controller Class Initialized
+INFO - 2019-03-24 16:49:59 --> Final output sent to browser
+DEBUG - 2019-03-24 16:49:59 --> Total execution time: 0.0135
+INFO - 2019-03-24 16:49:59 --> Config Class Initialized
+INFO - 2019-03-24 16:49:59 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:49:59 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:49:59 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:49:59 --> URI Class Initialized
+INFO - 2019-03-24 16:49:59 --> Router Class Initialized
+INFO - 2019-03-24 16:49:59 --> Output Class Initialized
+INFO - 2019-03-24 16:49:59 --> Security Class Initialized
+DEBUG - 2019-03-24 16:49:59 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:49:59 --> Input Class Initialized
+INFO - 2019-03-24 16:49:59 --> Language Class Initialized
+INFO - 2019-03-24 16:49:59 --> Loader Class Initialized
+INFO - 2019-03-24 16:49:59 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:49:59 --> Controller Class Initialized
+INFO - 2019-03-24 16:49:59 --> Final output sent to browser
+DEBUG - 2019-03-24 16:49:59 --> Total execution time: 0.0132
+INFO - 2019-03-24 16:49:59 --> Config Class Initialized
+INFO - 2019-03-24 16:49:59 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:49:59 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:49:59 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:49:59 --> URI Class Initialized
+INFO - 2019-03-24 16:49:59 --> Router Class Initialized
+INFO - 2019-03-24 16:49:59 --> Output Class Initialized
+INFO - 2019-03-24 16:49:59 --> Security Class Initialized
+DEBUG - 2019-03-24 16:49:59 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:49:59 --> Input Class Initialized
+INFO - 2019-03-24 16:49:59 --> Language Class Initialized
+INFO - 2019-03-24 16:49:59 --> Loader Class Initialized
+INFO - 2019-03-24 16:49:59 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:49:59 --> Controller Class Initialized
+INFO - 2019-03-24 16:49:59 --> Final output sent to browser
+DEBUG - 2019-03-24 16:49:59 --> Total execution time: 0.0108
+INFO - 2019-03-24 16:49:59 --> Config Class Initialized
+INFO - 2019-03-24 16:49:59 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:49:59 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:49:59 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:49:59 --> URI Class Initialized
+INFO - 2019-03-24 16:49:59 --> Router Class Initialized
+INFO - 2019-03-24 16:49:59 --> Output Class Initialized
+INFO - 2019-03-24 16:49:59 --> Security Class Initialized
+DEBUG - 2019-03-24 16:49:59 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:49:59 --> Input Class Initialized
+INFO - 2019-03-24 16:49:59 --> Language Class Initialized
+INFO - 2019-03-24 16:49:59 --> Loader Class Initialized
+INFO - 2019-03-24 16:49:59 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:49:59 --> Controller Class Initialized
+ERROR - 2019-03-24 16:49:59 --> array(1) {
+  [0]=>
+  object(stdClass)#16 (2) {
+    ["activity_id"]=>
+    string(2) "63"
+    ["user_num"]=>
+    string(1) "1"
+  }
+}
+
+INFO - 2019-03-24 16:49:59 --> Final output sent to browser
+DEBUG - 2019-03-24 16:49:59 --> Total execution time: 0.0110
+INFO - 2019-03-24 16:50:00 --> Config Class Initialized
+INFO - 2019-03-24 16:50:00 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:50:00 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:50:00 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:50:00 --> URI Class Initialized
+INFO - 2019-03-24 16:50:00 --> Router Class Initialized
+INFO - 2019-03-24 16:50:00 --> Output Class Initialized
+INFO - 2019-03-24 16:50:00 --> Security Class Initialized
+DEBUG - 2019-03-24 16:50:00 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:50:00 --> Input Class Initialized
+INFO - 2019-03-24 16:50:00 --> Language Class Initialized
+INFO - 2019-03-24 16:50:00 --> Loader Class Initialized
+INFO - 2019-03-24 16:50:00 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:50:00 --> Controller Class Initialized
+ERROR - 2019-03-24 16:50:00 --> array(0) {
+}
+
+INFO - 2019-03-24 16:50:00 --> Final output sent to browser
+DEBUG - 2019-03-24 16:50:00 --> Total execution time: 0.0133
+INFO - 2019-03-24 16:51:33 --> Config Class Initialized
+INFO - 2019-03-24 16:51:33 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:51:33 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:51:33 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:51:33 --> URI Class Initialized
+INFO - 2019-03-24 16:51:33 --> Router Class Initialized
+INFO - 2019-03-24 16:51:33 --> Output Class Initialized
+INFO - 2019-03-24 16:51:33 --> Security Class Initialized
+DEBUG - 2019-03-24 16:51:33 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:51:33 --> Input Class Initialized
+INFO - 2019-03-24 16:51:33 --> Language Class Initialized
+INFO - 2019-03-24 16:51:33 --> Loader Class Initialized
+INFO - 2019-03-24 16:51:33 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:51:33 --> Controller Class Initialized
+INFO - 2019-03-24 16:51:33 --> Final output sent to browser
+DEBUG - 2019-03-24 16:51:33 --> Total execution time: 0.0158
+INFO - 2019-03-24 16:51:33 --> Config Class Initialized
+INFO - 2019-03-24 16:51:33 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:51:33 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:51:33 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:51:33 --> URI Class Initialized
+INFO - 2019-03-24 16:51:33 --> Router Class Initialized
+INFO - 2019-03-24 16:51:33 --> Output Class Initialized
+INFO - 2019-03-24 16:51:33 --> Security Class Initialized
+DEBUG - 2019-03-24 16:51:33 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:51:33 --> Input Class Initialized
+INFO - 2019-03-24 16:51:33 --> Language Class Initialized
+INFO - 2019-03-24 16:51:33 --> Loader Class Initialized
+INFO - 2019-03-24 16:51:33 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:51:33 --> Controller Class Initialized
+INFO - 2019-03-24 16:51:33 --> Final output sent to browser
+DEBUG - 2019-03-24 16:51:33 --> Total execution time: 0.0122
+INFO - 2019-03-24 16:51:33 --> Config Class Initialized
+INFO - 2019-03-24 16:51:33 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:51:33 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:51:33 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:51:33 --> URI Class Initialized
+INFO - 2019-03-24 16:51:33 --> Router Class Initialized
+INFO - 2019-03-24 16:51:33 --> Output Class Initialized
+INFO - 2019-03-24 16:51:33 --> Security Class Initialized
+DEBUG - 2019-03-24 16:51:33 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:51:33 --> Input Class Initialized
+INFO - 2019-03-24 16:51:33 --> Language Class Initialized
+INFO - 2019-03-24 16:51:33 --> Loader Class Initialized
+INFO - 2019-03-24 16:51:33 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:51:33 --> Controller Class Initialized
+INFO - 2019-03-24 16:51:33 --> Final output sent to browser
+DEBUG - 2019-03-24 16:51:33 --> Total execution time: 0.0113
+INFO - 2019-03-24 16:51:33 --> Config Class Initialized
+INFO - 2019-03-24 16:51:33 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:51:33 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:51:33 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:51:33 --> URI Class Initialized
+INFO - 2019-03-24 16:51:33 --> Router Class Initialized
+INFO - 2019-03-24 16:51:33 --> Output Class Initialized
+INFO - 2019-03-24 16:51:33 --> Security Class Initialized
+DEBUG - 2019-03-24 16:51:33 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:51:33 --> Input Class Initialized
+INFO - 2019-03-24 16:51:33 --> Language Class Initialized
+INFO - 2019-03-24 16:51:33 --> Loader Class Initialized
+INFO - 2019-03-24 16:51:33 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:51:33 --> Controller Class Initialized
+ERROR - 2019-03-24 16:51:33 --> array(0) {
+}
+
+INFO - 2019-03-24 16:51:33 --> Final output sent to browser
+DEBUG - 2019-03-24 16:51:33 --> Total execution time: 0.0124
+INFO - 2019-03-24 16:51:33 --> Config Class Initialized
+INFO - 2019-03-24 16:51:33 --> Hooks Class Initialized
+DEBUG - 2019-03-24 16:51:33 --> UTF-8 Support Enabled
+INFO - 2019-03-24 16:51:33 --> Utf8 Class Initialized
+INFO - 2019-03-24 16:51:33 --> URI Class Initialized
+INFO - 2019-03-24 16:51:33 --> Router Class Initialized
+INFO - 2019-03-24 16:51:33 --> Output Class Initialized
+INFO - 2019-03-24 16:51:33 --> Security Class Initialized
+DEBUG - 2019-03-24 16:51:33 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 16:51:33 --> Input Class Initialized
+INFO - 2019-03-24 16:51:33 --> Language Class Initialized
+INFO - 2019-03-24 16:51:33 --> Loader Class Initialized
+INFO - 2019-03-24 16:51:33 --> Helper loaded: general_helper
+INFO - 2019-03-24 16:51:33 --> Controller Class Initialized
+ERROR - 2019-03-24 16:51:33 --> array(1) {
+  [0]=>
+  object(stdClass)#16 (2) {
+    ["activity_id"]=>
+    string(2) "63"
+    ["user_num"]=>
+    string(1) "1"
+  }
+}
+
+INFO - 2019-03-24 16:51:33 --> Final output sent to browser
+DEBUG - 2019-03-24 16:51:33 --> Total execution time: 0.0153
+INFO - 2019-03-24 22:25:04 --> Config Class Initialized
+INFO - 2019-03-24 22:25:04 --> Hooks Class Initialized
+DEBUG - 2019-03-24 22:25:04 --> UTF-8 Support Enabled
+INFO - 2019-03-24 22:25:04 --> Utf8 Class Initialized
+INFO - 2019-03-24 22:25:04 --> URI Class Initialized
+INFO - 2019-03-24 22:25:04 --> Router Class Initialized
+INFO - 2019-03-24 22:25:04 --> Output Class Initialized
+INFO - 2019-03-24 22:25:04 --> Security Class Initialized
+DEBUG - 2019-03-24 22:25:04 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 22:25:04 --> Input Class Initialized
+INFO - 2019-03-24 22:25:04 --> Language Class Initialized
+INFO - 2019-03-24 22:25:04 --> Loader Class Initialized
+INFO - 2019-03-24 22:25:04 --> Helper loaded: general_helper
+INFO - 2019-03-24 22:25:04 --> Controller Class Initialized
+ERROR - 2019-03-24 22:25:04 --> user_id1
+INFO - 2019-03-24 22:25:04 --> Final output sent to browser
+DEBUG - 2019-03-24 22:25:04 --> Total execution time: 0.0106
+INFO - 2019-03-24 22:42:22 --> Config Class Initialized
+INFO - 2019-03-24 22:42:22 --> Hooks Class Initialized
+DEBUG - 2019-03-24 22:42:22 --> UTF-8 Support Enabled
+INFO - 2019-03-24 22:42:22 --> Utf8 Class Initialized
+INFO - 2019-03-24 22:42:22 --> URI Class Initialized
+INFO - 2019-03-24 22:42:22 --> Router Class Initialized
+INFO - 2019-03-24 22:42:22 --> Output Class Initialized
+INFO - 2019-03-24 22:42:22 --> Security Class Initialized
+DEBUG - 2019-03-24 22:42:22 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 22:42:22 --> Input Class Initialized
+INFO - 2019-03-24 22:42:22 --> Language Class Initialized
+ERROR - 2019-03-24 22:42:22 --> 404 Page Not Found: WebYanxue/index
+INFO - 2019-03-24 22:52:48 --> Config Class Initialized
+INFO - 2019-03-24 22:52:48 --> Hooks Class Initialized
+DEBUG - 2019-03-24 22:52:48 --> UTF-8 Support Enabled
+INFO - 2019-03-24 22:52:48 --> Utf8 Class Initialized
+INFO - 2019-03-24 22:52:48 --> URI Class Initialized
+INFO - 2019-03-24 22:52:48 --> Router Class Initialized
+INFO - 2019-03-24 22:52:48 --> Output Class Initialized
+INFO - 2019-03-24 22:52:48 --> Security Class Initialized
+DEBUG - 2019-03-24 22:52:48 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 22:52:48 --> Input Class Initialized
+INFO - 2019-03-24 22:52:48 --> Language Class Initialized
+ERROR - 2019-03-24 22:52:48 --> 404 Page Not Found: WebYanxue/index
+INFO - 2019-03-24 22:53:00 --> Config Class Initialized
+INFO - 2019-03-24 22:53:00 --> Hooks Class Initialized
+DEBUG - 2019-03-24 22:53:00 --> UTF-8 Support Enabled
+INFO - 2019-03-24 22:53:00 --> Utf8 Class Initialized
+INFO - 2019-03-24 22:53:00 --> URI Class Initialized
+INFO - 2019-03-24 22:53:00 --> Router Class Initialized
+INFO - 2019-03-24 22:53:00 --> Output Class Initialized
+INFO - 2019-03-24 22:53:00 --> Security Class Initialized
+DEBUG - 2019-03-24 22:53:00 --> Global POST, GET and COOKIE data sanitized
+INFO - 2019-03-24 22:53:00 --> Input Class Initialized
+INFO - 2019-03-24 22:53:00 --> Language Class Initialized
+ERROR - 2019-03-24 22:53:00 --> 404 Page Not Found: WebYanxue/index

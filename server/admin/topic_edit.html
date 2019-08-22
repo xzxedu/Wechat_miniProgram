@@ -1,0 +1,909 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- import CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+  <style type="text/css">
+    .imgArea input {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 5;
+    }
+
+    .follow {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app" style="width: 80%;margin: 0 auto;">
+    <h1 style="text-align: center">添加主题</h1>
+    <div style="margin:10px;">当前活动：{{currentActivityName}}</div>
+
+    <el-form :model="form" :rules="rules" ref="form" label-width="100px">
+      <el-form-item label="主题名称" prop="name">
+        <el-input v-model="form.name"></el-input>
+      </el-form-item>
+      <el-form-item label="日期" required>
+        <el-form-item prop="startDate">
+          <el-date-picker type="date" placeholder="选择开始日期" v-model="form.startDate" style="width: 100%;"></el-date-picker>
+        </el-form-item>
+      </el-form-item>
+
+      <el-form-item label="标题图片">
+        <div class="imgArea">
+          <input id="file-selector" type="file" accept="image/gif,image/jpeg,image/jpg,image/png" @change="uploadLogoImage($event)">
+          <el-button type="primary ">点击上传</el-button>
+        </div>
+        <img :src="form.logoUrl" style="margin: 6px;" v-if="form.logoUrl != ''">
+      </el-form-item>
+
+      <el-form-item label="简介">
+        <quill-editor v-model="form.introduction" ref="quillEditorA" :options="editorOption" @blur="onEditorBlur($event)"
+          @focus="onEditorFocus($event)" @ready="onEditorReady($event)" style="height: 300px;margin-bottom: 60px">
+        </quill-editor>
+        <!--<div class="content ql-editor" v-html="form.introduction"></div>-->
+      </el-form-item>
+
+      <template v-for="(item, index) in form.topicInfo">
+        <el-form-item label="添加文字" v-if="item.type === 'txt'">
+          <!--<el-input v-model="item.content " type="textarea" :rows="2" placeholder="请输入内容"></el-input>-->
+          <quill-editor v-model="item.content" ref="quillEditorA" :options="editorOption" @blur="onEditorBlur($event)"
+            @focus="onEditorFocus($event)" @ready="onEditorReady($event)" style="height: 300px;margin-bottom: 60px"></quill-editor>
+          <div style="margin-top: 6px;margin-right: 3px;float: right;">
+            <el-button @click="onUp(index) ">上移</el-button>
+            <el-button @click="onDown(index) ">下移</el-button>
+            <el-button @click="onRemove(index) ">删除</el-button>
+          </div>
+        </el-form-item>
+        <el-form-item label="添加图片" v-if="item.type === 'img'">
+          <div class="imgArea">
+            <input :id="'img'+index" type="file" accept="image/gif,image/jpeg,image/jpg,image/png" @change="upload($event,item)">
+            <el-button type="primary ">点击上传图片</el-button>
+          </div>
+          <img :src="item.content" style="margin: 6px;" v-if="item.content != ''">
+          <div style="margin-top: 6px;margin-right: 3px;float: right;">
+            <el-button @click="onUp(index) ">上移</el-button>
+            <el-button @click="onDown(index) ">下移</el-button>
+            <el-button @click="onRemove(index) ">删除</el-button>
+          </div>
+        </el-form-item>
+        <el-form-item label="添加音频" v-if="item.type === 'audio'">
+          <div class="imgArea">
+            <input id="file-selector" type="file" accept="audio/mp3" @change="upload($event,item)">
+            <el-button type="primary ">点击上传音频</el-button>
+          </div>
+          <audio :src="item.content" controls="controls" style="margin: 6px;" v-if="item.content != ''">
+          </audio>
+          <div style="margin-top: 6px;margin-right: 3px;float: right;">
+            <el-button @click="onUp(index) ">上移</el-button>
+            <el-button @click="onDown(index) ">下移</el-button>
+            <el-button @click="onRemove(index) ">删除</el-button>
+          </div>
+        </el-form-item>
+        <el-form-item label="添加视频" v-if="item.type === 'video'">
+          <div class="imgArea">
+            <input id="file-selector" type="file" accept="video/mp4" @change="upload($event,item)">
+            <el-button type="primary ">点击上传视频</el-button>
+          </div>
+          <video :src="item.content" controls="controls" style="margin: 6px;" v-if="item.content != ''">
+          </video>
+          <div style="margin-top: 6px;margin-right: 3px;float: right;">
+            <el-button @click="onUp(index) ">上移</el-button>
+            <el-button @click="onDown(index) ">下移</el-button>
+            <el-button @click="onRemove(index) ">删除</el-button>
+          </div>
+        </el-form-item>
+        <el-form-item label="添加打卡组合" v-if="item.type === 'followPair'">
+          <template v-for="(itemFollow, indexFollow) in item.content">
+            <el-form-item label="添加原文" v-if="itemFollow.type === 'fTxt'">
+              <el-input v-model="itemFollow.content" type="textarea" :rows="5" style="margin-bottom: 6px" placeholder="请输入原文"></el-input>
+              <!--<quill-editor v-model="itemFollow.content" ref="quillEditorA" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
+                @ready="onEditorReady($event)" style="height: 300px;margin-bottom: 90px"></quill-editor>-->
+              <div style="margin-top: 6px;margin-right: 3px;float: right;">
+                <el-button type="text" @click="onUpFollow(index,indexFollow) ">上移</el-button>
+                <el-button type="text" @click="onDownFollow(index,indexFollow) ">下移</el-button>
+                <el-button type="text" @click="onRemoveFollow(index,indexFollow) ">删除</el-button>
+              </div>
+            </el-form-item>
+            <el-form-item label="添加译文" v-if="itemFollow.type === 'mTxt'">
+              <el-input v-model="itemFollow.content" type="textarea" :rows="5" style="margin-bottom: 6px" placeholder="请输入译文"></el-input>
+              <!--<quill-editor v-model="itemFollow.content" ref="quillEditorA" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
+                @ready="onEditorReady($event)" style="height: 300px;margin-bottom: 90px"></quill-editor>-->
+              <div style="margin-top: 6px;margin-right: 3px;float: right;">
+                <el-button type="text" @click="onUpFollow(index,indexFollow) ">上移</el-button>
+                <el-button type="text" @click="onDownFollow(index,indexFollow) ">下移</el-button>
+                <el-button type="text" @click="onRemoveFollow(index,indexFollow) ">删除</el-button>
+              </div>
+            </el-form-item>
+
+            <el-form-item label="添加文本" v-if="itemFollow.type === 'txt'">
+              <el-input v-model="itemFollow.content" type="textarea" :rows="5" style="margin-bottom: 6px" placeholder="请输入文字"></el-input>
+              <!--<quill-editor v-model="itemFollow.content" ref="quillEditorA" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
+                @ready="onEditorReady($event)" style="height: 300px;margin-bottom: 90px"></quill-editor>-->
+              <div style="margin-top: 6px;margin-right: 3px;float: right;">
+                <el-button type="text" @click="onUpFollow(index,indexFollow) ">上移</el-button>
+                <el-button type="text" @click="onDownFollow(index,indexFollow) ">下移</el-button>
+                <el-button type="text" @click="onRemoveFollow(index,indexFollow) ">删除</el-button>
+              </div>
+            </el-form-item>
+
+            <el-form-item label="添加图片" v-if="itemFollow.type === 'img'">
+              <div class="imgArea">
+                <input :id="'img'+index" type="file" accept="image/gif,image/jpeg,image/jpg,image/png" @change="upload($event,itemFollow)">
+                <el-button type="primary ">点击上传图片</el-button>
+              </div>
+              <img :src="itemFollow.content" style="margin: 6px;" v-if="itemFollow.content != ''">
+              <div style="margin-top: 6px;margin-right: 3px;float: right;">
+                <el-button type="text" @click="onUpFollow(index,indexFollow) ">上移</el-button>
+                <el-button type="text" @click="onDownFollow(index,indexFollow) ">下移</el-button>
+                <el-button type="text" @click="onRemoveFollow(index,indexFollow) ">删除</el-button>
+              </div>
+            </el-form-item>
+
+            <el-form-item label="添加跟读音频" v-if="itemFollow.type === 'audio'">
+              <div class="imgArea">
+                <input :id="'audio'+index" type="file" accept="audio/mp3" @change="upload($event,itemFollow)">
+                <el-button type="primary">点击上传音频</el-button>
+              </div>
+              <audio :src="itemFollow.content" controls="controls" style="margin: 6px;" v-if="itemFollow.content != ''">
+              </audio>
+              <div style="margin-top: 6px;margin-right: 3px;float: right;">
+                <el-button type="text" @click="onUpFollow(index,indexFollow) ">上移</el-button>
+                <el-button type="text" @click="onDownFollow(index,indexFollow) ">下移</el-button>
+                <el-button type="text" @click="onRemoveFollow(index,indexFollow) ">删除</el-button>
+              </div>
+            </el-form-item>
+            <el-form-item label="添加跟读视频" v-if="itemFollow.type === 'video'">
+              <div class="imgArea">
+                <input :id="'video'+index" type="file" accept="video/mp4" @change="upload($event,itemFollow)">
+                <el-button type="primary">点击上传视频</el-button>
+              </div>
+              <video :src="itemFollow.content" controls="controls" style="margin: 6px;" v-if="itemFollow.content != ''">
+              </video>
+              <div style="margin-top: 6px;margin-right: 3px;float: right;">
+                <el-button type="text" @click="onUpFollow(index,indexFollow) ">上移</el-button>
+                <el-button type="text" @click="onDownFollow(index,indexFollow) ">下移</el-button>
+                <el-button type="text" @click="onRemoveFollow(index,indexFollow) ">删除</el-button>
+              </div>
+            </el-form-item>
+            <el-form-item label="添加音频" v-if="itemFollow.type === 'showAudio'">
+              <div class="imgArea">
+                <input :id="'audio'+index" type="file" accept="audio/mp3" @change="upload($event,itemFollow)">
+                <el-button type="primary">点击上传音频</el-button>
+              </div>
+              <audio :src="itemFollow.content" controls="controls" style="margin: 6px;" v-if="itemFollow.content != ''">
+              </audio>
+              <div style="margin-top: 6px;margin-right: 3px;float: right;">
+                <el-button type="text" @click="onUpFollow(index,indexFollow) ">上移</el-button>
+                <el-button type="text" @click="onDownFollow(index,indexFollow) ">下移</el-button>
+                <el-button type="text" @click="onRemoveFollow(index,indexFollow) ">删除</el-button>
+              </div>
+            </el-form-item>
+            <el-form-item label="添加视频" v-if="itemFollow.type === 'showVideo'">
+              <div class="imgArea">
+                <input :id="'video'+index" type="file" accept="video/mp4" @change="upload($event,itemFollow)">
+                <el-button type="primary">点击上传视频</el-button>
+              </div>
+              <video :src="itemFollow.content" controls="controls" style="margin: 6px;" v-if="itemFollow.content != ''">
+              </video>
+              <div style="margin-top: 6px;margin-right: 3px;float: right;">
+                <el-button type="text" @click="onUpFollow(index,indexFollow) ">上移</el-button>
+                <el-button type="text" @click="onDownFollow(index,indexFollow) ">下移</el-button>
+                <el-button type="text" @click="onRemoveFollow(index,indexFollow) ">删除</el-button>
+              </div>
+            </el-form-item>
+            <el-form-item label="添加单选答案" v-if="itemFollow.type === 'choice'">
+              <el-radio-group v-model="itemFollow.content">
+                <el-radio label="A"></el-radio>
+                <el-radio label="B"></el-radio>
+                <el-radio label="C"></el-radio>
+                <el-radio label="D"></el-radio>
+              </el-radio-group>
+              
+              <div style="margin-top: 6px;margin-right: 3px;float: right;">
+                <el-button type="text" @click="onUpFollow(index,indexFollow) ">上移</el-button>
+                <el-button type="text" @click="onDownFollow(index,indexFollow) ">下移</el-button>
+                <el-button type="text" @click="onRemoveFollow(index,indexFollow) ">删除</el-button>
+              </div>
+            </el-form-item>
+            <el-form-item label="添加多选答案" v-if="itemFollow.type === 'multiChoice'">
+              <el-checkbox-group v-model="itemFollow.content">
+                <el-checkbox label="A"></el-checkbox>
+                <el-checkbox label="B"></el-checkbox>
+                <el-checkbox label="C"></el-checkbox>
+                <el-checkbox label="D"></el-checkbox>                
+              </el-checkbox-group>             
+              <div style="margin-top: 6px;margin-right: 3px;float: right;">
+                <el-button type="text" @click="onUpFollow(index,indexFollow) ">上移</el-button>
+                <el-button type="text" @click="onDownFollow(index,indexFollow) ">下移</el-button>
+                <el-button type="text" @click="onRemoveFollow(index,indexFollow) ">删除</el-button>
+              </div>
+            </el-form-item>
+            <el-form-item label="添加文本答案" v-if="itemFollow.type === 'txtAnswer'">
+              <el-input v-model="itemFollow.content" type="textarea" :rows="5" style="margin-bottom: 6px" placeholder="请输入文字"></el-input>
+              <!--<quill-editor v-model="itemFollow.content" ref="quillEditorA" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
+                @ready="onEditorReady($event)" style="height: 300px;margin-bottom: 90px"></quill-editor>-->
+              <div style="margin-top: 6px;margin-right: 3px;float: right;">
+                <el-button type="text" @click="onUpFollow(index,indexFollow) ">上移</el-button>
+                <el-button type="text" @click="onDownFollow(index,indexFollow) ">下移</el-button>
+                <el-button type="text" @click="onRemoveFollow(index,indexFollow) ">删除</el-button>
+              </div>
+            </el-form-item>
+            <el-form-item label="添加图片答案" v-if="itemFollow.type === 'imgAnswer'">
+              <div class="imgArea">
+                <input :id="'img'+index" type="file" accept="image/gif,image/jpeg,image/jpg,image/png" @change="upload($event,itemFollow)">
+                <el-button type="primary ">点击上传图片</el-button>
+              </div>
+              <img :src="itemFollow.content" style="margin: 6px;" v-if="itemFollow.content != ''">
+              <div style="margin-top: 6px;margin-right: 3px;float: right;">
+                <el-button type="text" @click="onUpFollow(index,indexFollow) ">上移</el-button>
+                <el-button type="text" @click="onDownFollow(index,indexFollow) ">下移</el-button>
+                <el-button type="text" @click="onRemoveFollow(index,indexFollow) ">删除</el-button>
+              </div>
+            </el-form-item>
+            <el-form-item label="添加文本解析" v-if="itemFollow.type === 'txtExplain'">
+              <el-input v-model="itemFollow.content" type="textarea" :rows="5" style="margin-bottom: 6px" placeholder="请输入文字"></el-input>
+              <!--<quill-editor v-model="itemFollow.content" ref="quillEditorA" :options="editorOption" @blur="onEditorBlur($event)" @focus="onEditorFocus($event)"
+                @ready="onEditorReady($event)" style="height: 300px;margin-bottom: 90px"></quill-editor>-->
+              <div style="margin-top: 6px;margin-right: 3px;float: right;">
+                <el-button type="text" @click="onUpFollow(index,indexFollow) ">上移</el-button>
+                <el-button type="text" @click="onDownFollow(index,indexFollow) ">下移</el-button>
+                <el-button type="text" @click="onRemoveFollow(index,indexFollow) ">删除</el-button>
+              </div>
+            </el-form-item>
+            <el-form-item label="添加图片解析" v-if="itemFollow.type === 'imgExplain'">
+              <div class="imgArea">
+                <input :id="'img'+index" type="file" accept="image/gif,image/jpeg,image/jpg,image/png" @change="upload($event,itemFollow)">
+                <el-button type="primary ">点击上传图片</el-button>
+              </div>
+              <img :src="itemFollow.content" style="margin: 6px;" v-if="itemFollow.content != ''">
+              <div style="margin-top: 6px;margin-right: 3px;float: right;">
+                <el-button type="text" @click="onUpFollow(index,indexFollow) ">上移</el-button>
+                <el-button type="text" @click="onDownFollow(index,indexFollow) ">下移</el-button>
+                <el-button type="text" @click="onRemoveFollow(index,indexFollow) ">删除</el-button>
+              </div>
+            </el-form-item>
+            <el-form-item label="添加音频解析" v-if="itemFollow.type === 'audioExplain'">
+              <div class="imgArea">
+                <input :id="'audio'+index" type="file" accept="audio/mp3" @change="upload($event,itemFollow)">
+                <el-button type="primary">点击上传音频</el-button>
+              </div>
+              <audio :src="itemFollow.content" controls="controls" style="margin: 6px;" v-if="itemFollow.content != ''">
+              </audio>
+              <div style="margin-top: 6px;margin-right: 3px;float: right;">
+                <el-button type="text" @click="onUpFollow(index,indexFollow) ">上移</el-button>
+                <el-button type="text" @click="onDownFollow(index,indexFollow) ">下移</el-button>
+                <el-button type="text" @click="onRemoveFollow(index,indexFollow) ">删除</el-button>
+              </div>
+            </el-form-item>
+            <el-form-item label="添加视频解析" v-if="itemFollow.type === 'videoExplain'">
+              <div class="imgArea">
+                <input :id="'video'+index" type="file" accept="video/mp4" @change="upload($event,itemFollow)">
+                <el-button type="primary">点击上传视频</el-button>
+              </div>
+              <video :src="itemFollow.content" controls="controls" style="margin: 6px;" v-if="itemFollow.content != ''">
+              </video>
+              <div style="margin-top: 6px;margin-right: 3px;float: right;">
+                <el-button type="text" @click="onUpFollow(index,indexFollow) ">上移</el-button>
+                <el-button type="text" @click="onDownFollow(index,indexFollow) ">下移</el-button>
+                <el-button type="text" @click="onRemoveFollow(index,indexFollow) ">删除</el-button>
+              </div>
+            </el-form-item>
+          </template>
+          <el-form-item>
+            <div class="follow">
+              打卡要求：
+              <el-button type="primary " plain @click="onAddFollowFText(index) ">添加原文</el-button>
+              <el-button type="primary " plain @click="onAddFollowMText(index) ">添加译文</el-button>
+              <el-button type="primary " plain @click="onAddFollowAudio(index) ">添加跟读音频</el-button>
+              <el-button type="primary " plain @click="onAddFollowVideo(index) ">添加跟读视频</el-button>
+              <el-button type="primary " plain @click="onAddFollowText(index) ">添加文字</el-button>
+              <el-button type="primary " plain @click="onAddFollowImage(index) ">添加图片</el-button>
+              <el-button type="primary " plain @click="onAddFollowShowAudio(index) ">添加音频</el-button>
+              <el-button type="primary " plain @click="onAddFollowShowVideo(index) ">添加视频</el-button>                            
+            </div>
+          </el-form-item>
+          <el-form-item>
+            <div class="follow">
+              打卡答案：
+              <el-button type="primary " plain @click="onAddFollowAnswerChoice(index) ">添加单选答案</el-button>
+              <el-button type="primary " plain @click="onAddFollowAnswerMultiChoice(index) ">添加多选答案</el-button>
+              <el-button type="primary " plain @click="onAddFollowAnswerText(index) ">添加文字答案</el-button>
+              <el-button type="primary " plain @click="onAddFollowAnswerImage(index) ">添加图片答案</el-button>              
+            </div>
+          </el-form-item>
+          <el-form-item>
+            <div class="follow">
+              打卡解析：
+              <el-button type="primary " plain @click="onAddFollowTextExplain(index) ">添加文字解析</el-button>
+              <el-button type="primary " plain @click="onAddFollowImageExplain(index) ">添加图片解析</el-button>
+              <el-button type="primary " plain @click="onAddFollowAudioExplain(index) ">添加音频解析</el-button>
+              <el-button type="primary " plain @click="onAddFollowVideoExplain(index) ">添加视频解析</el-button>
+            </div>
+          </el-form-item>
+          <div style="margin-top: 6px;margin-right: 3px;float: right;">
+            <el-button @click="onUp(index) ">上移</el-button>
+            <el-button @click="onDown(index) ">下移</el-button>
+            <el-button @click="onRemove(index) ">删除</el-button>
+          </div>
+        </el-form-item>
+      </template>
+      <el-form-item>
+        <el-button type="primary " @click="onAddText ">添加文字</el-button>
+        <el-button type="primary " @click="onAddImage ">添加图片</el-button>
+        <el-button type="primary " @click="onAddAudio ">添加音频</el-button>
+        <el-button type="primary " @click="onAddVideo ">添加视频</el-button>
+        <el-button type="primary " @click="onAddFollow">添加打卡组合</el-button>
+        <el-button type="warning" @click="submitForm('form')">立即更新</el-button>
+        <el-button @click="resetForm('form')">重置</el-button>
+      </el-form-item>
+
+      <!--<el-form-item>
+        <el-button type="primary " @click="onAddFtxtAudio ">添加原文+音频</el-button>
+        <el-button type="primary " @click="onAddFtxtVideo ">添加原文+视频</el-button>
+        <el-button type="primary " @click="onAddFMtxtAudio ">添加原译文+音频</el-button>
+        <el-button type="primary " @click="onAddFMtxtVideo ">添加原译文+视频</el-button>
+      </el-form-item>-->
+    </el-form>
+
+    <div style="margin-top:30px;">提示：<br />
+      打卡组合的组成为 跟读（可选）、问题、答案、解析<br />
+      跟读：可以插入用来跟读的一段原文、译文、跟读录音；<br />
+      问题：插入一个或多个文字、图片、音频和视频作为问题的题干；<br />
+      答案： 一个单选或多选或文字或图片答案；<br />
+      解析：一个或多个文字解析、图片解析、音频解析和视频解析；<br />
+      可以插入多个打卡组合</div>
+    <div style="margin-top:30px;">打卡组合例子1：跟读<br />
+      跟读原文<br />
+      跟读译文<br />
+      跟读录音<br />
+      解析(一个或多个文字解析、图片解析、音频解析和视频解析)<br />
+    </div>
+    <div style="margin-top:30px;">打卡组合例子2：跟读和解答题<br />
+      跟读原文<br />
+      跟读译文<br />
+      跟读录音<br />
+      解答题(用一个或多个文字、图片、音频和视频作为问题的题干)<br />
+      解答答案（一个单选或多选或文字或图片答案）<br />
+      解析(一个或多个文字解析、图片解析、音频解析和视频解析)<br />
+    </div>
+    <div style="margin-top:30px;">打卡组合例子3：解答题<br />
+      解答题(用一个或多个文字、图片、音频和视频作为问题的题干)<br />
+      解答答案（一个单选或多选或文字或图片答案）<br />
+      解析(一个或多个文字解析、图片解析、音频解析和视频解析)<br />
+    </div>
+  </div>  
+</body>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- import JavaScript -->
+<!--<script src="https://unpkg.com/element-ui/lib/index.js"></script>-->
+<script src="https://unpkg.com/element-ui@2.3.4/lib/index.js"></script>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-quill-editor@3.0.4/dist/vue-quill-editor.js"></script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="cos-js-sdk-v5.min.js"></script>
+
+
+<script>
+  var toolbarOptions = [
+    ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+    ['blockquote', 'code-block'],
+
+    [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+    [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+    [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
+    [{ 'direction': 'rtl' }],                         // text direction
+
+    [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+    [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+    [{ 'font': [] }],
+    [{ 'align': [] }],
+
+    ['clean']                                         // remove formatting button
+  ];
+
+  var formatDate = function (date) {
+    var y = date.getFullYear();
+    var m = date.getMonth() + 1;
+    m = m < 10 ? '0' + m : m;
+    var d = date.getDate();
+    d = d < 10 ? ('0' + d) : d;
+    return y + '-' + m + '-' + d;
+  };
+
+  Vue.use(VueQuillEditor);
+  var app = new Vue({
+    el: '#app',
+    data: {
+      form: {
+        name: '',
+        tagline: '',
+        startDate: '',
+        logoUrl: '',
+        introduction: '<h2>I am Example A</h2>',
+        topicInfo: [],
+        contentNum: '',
+        topicInfoDemo: [
+          { type: "txt", content: "123456" },
+          { type: "img", content: "../reading/images/btn_read_homework.png" },
+          { type: "txt", content: "english" },
+          { type: "audio", content: "https://fe-1255989678.cos.ap-beijing.myqcloud.com/1.mp3" },
+          { type: "video", content: "https://fe-1255989678.cos.ap-beijing.myqcloud.com/1.mp4" },
+          {
+            type: "followPair",
+            content: [{ type: "fTxt", content: "new concept" },
+            { type: "mTxt", content: "新概念英语" },
+            { type: "audio", content: "" }]
+          },
+          {
+            type: "followPair",
+            content: [{ type: "fTxt", content: "new concept" },
+            { type: "mTxt", content: "新概念英语" },
+            { type: "video", content: "" }]
+          },
+        ],
+      },
+      currentActivityId: -1,
+      currentActivityName: "",
+      currentTopicId: -1,
+      rules: {
+        name: [
+          { required: true, message: '请输入主题名称', trigger: 'blur' },
+          { min: 3, max: 60, message: '长度在 3 到 60 个字符', trigger: 'blur' }
+        ]
+      },
+      editorOption: {
+        modules: {
+          toolbar: toolbarOptions
+        },
+        theme: 'snow'
+      },
+    },
+    components: {
+      LocalQuillEditor: VueQuillEditor.quillEditor
+    },
+    mounted: function () {
+      // `this` 指向 vm 实例
+      console.log('created');
+      var userId = sessionStorage.userId;
+      var currentActivity = JSON.parse(sessionStorage.currentActivity);
+
+      this.currentActivityId = currentActivity.id;
+      this.currentActivityName = currentActivity.name;
+
+      var currentTopic = JSON.parse(sessionStorage.currentTopic);
+      this.currentTopicId = currentTopic.id;
+      this.form.name = currentTopic.name;
+      this.form.logoUrl = currentTopic.logo_url;
+      this.form.startDate = new Date(currentTopic.start_date);
+      this.form.introduction = currentTopic.introduction;
+      this.form.topicInfo = JSON.parse(currentTopic.content);
+      this.form.contentNum = currentTopic.content_num;
+
+      if(this.form.contentNum == '0') //对以前的content加key
+      {        
+        for (var itemContent in this.form.topicInfo) {
+          this.form.topicInfo[itemContent].key = itemContent;
+        }
+        this.form.contentNum = this.form.topicInfo.length;
+      }
+
+      console.log(currentTopic);
+    },
+    methods: {
+      uploadLogoImage(e) {
+        console.log("upload logo image");
+        var that = this;
+        var userId = sessionStorage.userId;
+        var file = e.target.files[0];
+
+        if (!file) return;
+
+        //分片上传文件
+        cos.sliceUploadFile({
+          Bucket: config.Bucket,
+          Region: config.Region,
+          Key: "yanxue/" + userId+"/"+ that.currentActivityId + "/"+ userId + "_" + file.name,
+          Body: file,
+          TaskReady: function (tid) {
+            TaskId = tid;
+          },
+          onProgress: function (progressData) {
+            console.log(JSON.stringify(progressData));
+          },
+        }, function (err, data) {
+          console.log(err, data);
+          that.form.logoUrl = prefix + "yanxue/" + userId+"/"+ that.currentActivityId + "/"+ userId + "_" + file.name;
+        });
+        console.log(this.form);
+      },
+      upload(e, item) {
+        console.log("upload");
+
+        console.log(item);
+        var that = this;
+        var userId = sessionStorage.userId;
+        var file = e.target.files[0];
+
+        //分片上传文件        
+        cos.sliceUploadFile({
+          Bucket: config.Bucket,
+          Region: config.Region,
+          Key: "yanxue/" + userId+"/"+ that.currentActivityId + "/"+ userId + "_" + file.name,
+          Body: file,
+          TaskReady: function (tid) {
+            TaskId = tid;
+          },
+          onProgress: function (progressData) {
+            console.log(JSON.stringify(progressData));
+          },
+        }, function (err, data) {
+          console.log(err, data);
+          item.content = prefix + "yanxue/" + userId+"/"+ that.currentActivityId + "/"+ userId + "_" + file.name;
+        });
+
+        //item.content = prefix + file.name;
+        //console.log(this.form);
+      },
+      onUp(index) {
+        if (index === 0) return;
+        var tmp = this.form.topicInfo[index - 1];
+        console.log("index:" + index);
+        this.$set(this.form.topicInfo, index - 1, this.form.topicInfo[index]);
+        this.$set(this.form.topicInfo, index, tmp);
+        console.log(this.form.topicInfo);
+      },
+      onDown(index) {
+        if (index === this.form.topicInfo.length - 1) return;
+        var tmp = this.form.topicInfo[index + 1];
+        this.$set(this.form.topicInfo, index + 1, this.form.topicInfo[index]);
+        this.$set(this.form.topicInfo, index, tmp);
+        console.log(this.form.topicInfo);
+      },
+      onRemove(index) {
+        this.form.topicInfo.splice(index, 1);
+        console.log(this.form.topicInfo);
+      },
+      onAddText() {
+        this.form.topicInfo.push({ type: "txt", content: "", key: this.form.contentNum });
+        this.form.contentNum = this.form.contentNum + 1;
+      },
+      onAddImage() {
+        this.form.topicInfo.push({ type: "img", content: "", key: this.form.contentNum });
+        this.form.contentNum = this.form.contentNum + 1;
+      },
+      onAddAudio() {
+        this.form.topicInfo.push({ type: "audio", content: "", key: this.form.contentNum });
+        this.form.contentNum = this.form.contentNum + 1;
+      },
+      onAddVideo() {
+        this.form.topicInfo.push({ type: "video", content: "", key: this.form.contentNum });
+        this.form.contentNum = this.form.contentNum + 1;
+      },
+      onAddFollow() {
+        this.form.topicInfo.push({
+          type: "followPair",
+          content: [], 
+          key: this.form.contentNum
+        });
+        this.form.contentNum = this.form.contentNum + 1;
+      },
+      onUpFollow(index,indexFollow) {
+        if (indexFollow === 0) return;
+        var tmp = this.form.topicInfo[index].content[indexFollow-1];
+        console.log("indexFollow:" + indexFollow);
+        this.$set(this.form.topicInfo[index].content, indexFollow - 1, this.form.topicInfo[index].content[indexFollow]);
+        this.$set(this.form.topicInfo[index].content, indexFollow, tmp);
+        console.log(this.form.topicInfo[index].content);
+      },
+      onDownFollow(index,indexFollow) {
+        if (indexFollow === this.form.topicInfo[index].content.length - 1) return;
+        var tmp = this.form.topicInfo[index].content[indexFollow + 1];
+        this.$set(this.form.topicInfo[index].content, indexFollow + 1, this.form.topicInfo[index].content[indexFollow]);
+        this.$set(this.form.topicInfo[index].content, indexFollow, tmp);
+        console.log(this.form.topicInfo[index].content);
+      },
+      onRemoveFollow(index,indexFollow) {
+        this.form.topicInfo[index].content.splice(indexFollow, 1);
+        console.log(this.form.topicInfo[index].content);
+      },
+      onAddFollowFText(index) {
+        console.log("onAddFollowText index:" + index);        
+        //console.log(this.form.topicInfo);
+        //console.log(this.form.topicInfo[index]);        
+
+        this.form.topicInfo[index].content.push({
+          type: "fTxt", class:"exercise", content: ""
+        });
+      },
+      onAddFollowMText(index) {
+        console.log("onAddFollowText index:" + index);        
+        //console.log(this.form.topicInfo);
+        //console.log(this.form.topicInfo[index]);        
+
+        this.form.topicInfo[index].content.push({
+          type: "mTxt", class:"exercise", content: ""
+        });
+      },
+      onAddFollowText(index) {
+        console.log("onAddFollowText index:" + index);        
+        //console.log(this.form.topicInfo);
+        //console.log(this.form.topicInfo[index]);        
+
+        this.form.topicInfo[index].content.push({
+          type: "txt", class:"exercise", content: ""
+        });
+      },
+      onAddFollowImage(index) {
+        console.log("onAddFollowText index:" + index);        
+        //console.log(this.form.topicInfo);
+        //console.log(this.form.topicInfo[index]);        
+
+        this.form.topicInfo[index].content.push({
+          type: "img", class:"exercise", content: ""
+        });        
+      },
+      //不需要跟读
+      onAddFollowShowAudio(index) {
+        console.log("onAddFollowText index:" + index);        
+        //console.log(this.form.topicInfo);
+        //console.log(this.form.topicInfo[index]);        
+
+        this.form.topicInfo[index].content.push({
+          type: "showAudio", class:"exercise", content: ""          
+        });        
+      },
+      onAddFollowShowVideo(index) {
+        console.log("onAddFollowText index:" + index);        
+        //console.log(this.form.topicInfo);
+        //console.log(this.form.topicInfo[index]);        
+
+        this.form.topicInfo[index].content.push({
+          type: "showVideo", class:"exercise", content: ""
+        });        
+      },
+      //需要跟读
+      onAddFollowAudio(index) {
+        console.log("onAddFollowText index:" + index);        
+        //console.log(this.form.topicInfo);
+        //console.log(this.form.topicInfo[index]);        
+
+        this.form.topicInfo[index].content.push({
+          type: "audio", class:"exercise", content: ""
+        });        
+      },
+      onAddFollowVideo(index) {
+        console.log("onAddFollowText index:" + index);        
+        //console.log(this.form.topicInfo);
+        //console.log(this.form.topicInfo[index]);        
+
+        this.form.topicInfo[index].content.push({
+          type: "video", class:"exercise", content: ""
+        });        
+      },
+      onAddFollowAnswerChoice(index) {
+        console.log("onAddFollowAnswerChoice index:" + index);        
+        //console.log(this.form.topicInfo);
+        //console.log(this.form.topicInfo[index]);        
+
+        this.form.topicInfo[index].content.push({
+          type: "choice", class:"answer", content: ""
+        });
+      },
+      onAddFollowAnswerMultiChoice(index) {
+        console.log("onAddFollowAnswerChoice index:" + index);        
+        //console.log(this.form.topicInfo);
+        //console.log(this.form.topicInfo[index]);        
+
+        this.form.topicInfo[index].content.push({
+          type: "multiChoice", class:"answer", content: []
+        });
+      },
+      onAddFollowAnswerText(index) {
+        console.log("onAddFollowAnswerChoice index:" + index);        
+        //console.log(this.form.topicInfo);
+        //console.log(this.form.topicInfo[index]);        
+
+        this.form.topicInfo[index].content.push({
+          type: "txtAnswer", class:"answer", content: ""
+        });
+      },
+      onAddFollowAnswerImage(index) {
+        console.log("onAddFollowAnswerChoice index:" + index);        
+        //console.log(this.form.topicInfo);
+        //console.log(this.form.topicInfo[index]);        
+
+        this.form.topicInfo[index].content.push({
+          type: "imgAnswer", class:"answer", content: ""
+        });
+      },
+      onAddFollowTextExplain(index) {
+        console.log("onAddFollowTextExplain index:" + index);        
+        //console.log(this.form.topicInfo);
+        //console.log(this.form.topicInfo[index]);        
+
+        this.form.topicInfo[index].content.push({
+          type: "txtExplain", class:"explain", content: ""
+        });
+      },
+      onAddFollowImageExplain(index) {
+        console.log("onAddFollowImageExplain index:" + index);        
+        //console.log(this.form.topicInfo);
+        //console.log(this.form.topicInfo[index]);        
+
+        this.form.topicInfo[index].content.push({
+          type: "imgExplain", class:"explain", content: ""
+        });        
+      },
+      onAddFollowAudioExplain(index) {
+        console.log("onAddFollowText index:" + index);        
+        //console.log(this.form.topicInfo);
+        //console.log(this.form.topicInfo[index]);        
+
+        this.form.topicInfo[index].content.push({
+          type: "audioExplain", class:"explain", content: ""
+        });        
+      },
+      onAddFollowVideoExplain(index) {
+        console.log("onAddFollowText index:" + index);        
+        //console.log(this.form.topicInfo);
+        //console.log(this.form.topicInfo[index]);        
+
+        this.form.topicInfo[index].content.push({
+          type: "videoExplain", class:"explain", content: ""
+        });        
+      },
+
+      onAddFtxtAudio() {
+        this.form.topicInfo.push({
+          type: "followPair",
+          content: [{ type: "fTxt", content: "" },
+          { type: "audio", content: "" }]
+        });
+      },
+      onAddFtxtVideo() {
+        this.form.topicInfo.push({
+          type: "followPair",
+          content: [{ type: "fTxt", content: "" },
+          { type: "video", content: "" }]
+        });
+      },
+      onAddFMtxtAudio() {
+        this.form.topicInfo.push({
+          type: "followPair",
+          content: [{ type: "fTxt", content: "" },
+          { type: "mTxt", content: "" },
+          { type: "audio", content: "" }]
+        });
+      },
+      onAddFMtxtVideo() {
+        this.form.topicInfo.push({
+          type: "followPair",
+          content: [{ type: "fTxt", content: "" },
+          { type: "mTxt", content: "" },
+          { type: "video", content: "" }]
+        });
+      },
+      submitForm(formName) {
+        console.log(this.form.topicInfo);
+        var that = this;
+        var id = this.currentTopicId;
+        var activityId = this.currentActivityId;
+        var userId = sessionStorage.userId;
+        var name = this.form.name;
+        var logoUrl = this.form.logoUrl;
+        var introduction = this.form.introduction;
+        var startDate = formatDate(this.form.startDate);
+        var content = JSON.stringify(this.form.topicInfo);
+        var contentNum = this.form.contentNum;
+        axios({
+          url: '/weapp/WebTopic/update',
+          //url: '/weapp/index.php/WebTopic/update',
+          method: 'post',
+          data: {
+            id: id,
+            activityId: activityId,
+            userId: userId,
+            name: name,
+            logoUrl: logoUrl,
+            introduction: introduction,
+            startDate: startDate,
+            content: content,
+            contentNum: contentNum
+          },
+          transformRequest: [function (data) {
+            // Do whatever you want to transform the data
+            let ret = ''
+            for (let it in data) {
+              ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
+            }
+            return ret
+          }],
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        })
+          .then(function (response) {
+
+            //var res = JSON.parse(response);
+            console.log("response" + response.data.code);
+            if (response.data.code === 0) {
+              console.log(response.data);
+              that.activityList = response.data.data;
+              console.log(that.activityList);
+              window.location = "topic_list.html";
+            }
+
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      },
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      },
+      onEditorBlur(quill) {
+        console.log('editor blur!', quill)
+      },
+      onEditorFocus(quill) {
+        console.log('editor focus!', quill)
+      },
+      onEditorReady(quill) {
+        console.log('editor ready!', quill)
+      }
+    },
+    computed: {
+      editorA() {
+        return this.$refs.quillEditorA.quill
+      },
+    },
+  });
+
+  var config = {
+    Bucket: 'fe-1255989678',
+    Region: 'ap-beijing'
+  };
+
+  var prefix = 'https://' + config.Bucket + '.cos.' + config.Region + '.myqcloud.com/';
+
+  var getAuthorization = function (options, callback) {
+    var url = 'https://yanxue.faithforfuture.com/api/sts.php';
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.onload = function (e) {
+      try {
+        var data = JSON.parse(e.target.responseText);
+      } catch (e) {
+      }
+      callback({
+        TmpSecretId: data.credentials && data.credentials.tmpSecretId,
+        TmpSecretKey: data.credentials && data.credentials.tmpSecretKey,
+        XCosSecurityToken: data.credentials && data.credentials.sessionToken,
+        ExpiredTime: data.expiredTime,
+      });
+    };
+    xhr.send();
+  }
+
+  var cos = new COS({
+    getAuthorization: getAuthorization,
+  });
+
+</script>
+
+</html>

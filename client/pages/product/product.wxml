@@ -17,21 +17,22 @@
     </view>
         <view class="line forth">
         <view class="left">
-            <image class="forth-img" mode="scaleToFill" src="/images/hot.jpg"></image>
+            <image class="forth-img" mode="scaleToFill" src="/images/analyse.png"></image>
             <text class="text-center txt">根据您的喜好</text>
             <text class="text-center txt">\n 系统智能分析</text>
-            <text class = "center-line-text">最推荐</text>
+            <text class = "center-line-text">\n \n 最推荐</text>
         </view>
         <view class="right">
             <view class="top">
                 <view class="cl4">
-                    <image class="cl4-img" mode="scaleToFill" src="/images/hot.jpg"></image>
+                    <image class="cl4-img" mode="scaleToFill" src="/images/hot.png"></image>
                     <text class = "center-line-text">最热销</text>
                 </view>
             </view>
             <view class="bottom">
                 <view class="cl4">
-                    <image class="cl4-img" mode="scaleToFill" src="http://b2.hucdn.com//upload/hmp/1609/28/67263117394059_212x204.jpg!200q50.webp"></image>
+                    <image class="cl4-img" mode="scaleToFill" src="/images/baoxian.png"></image>
+                    <text class = "center-line-text">最保险</text>
                 </view>
             </view>
         </view>

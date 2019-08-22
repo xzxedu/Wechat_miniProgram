@@ -54,7 +54,7 @@ Config::setup(array(
         'port' => 3306,
         'user' => 'root',
         'pass' => '',
-        'db'   => 'cAuth',
+        'db'   => 'gDb',
         'char' => 'utf8mb4'
     ],
     'cos' => [
