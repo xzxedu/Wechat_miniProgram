@@ -41,6 +41,24 @@ Page({
         }
       })
     }
+    wx.request({
+      url: 'https://pv.sohu.com/cityjson?ie=utf-8',
+      success: function (e) {
+        /*获取当前用户ip地址*/
+        console.log(e.data);
+        var aaa = e.data.split(' ');
+        var bbb = aaa[4];
+        var ccc = bbb.replace('"', '');
+        var ddd = ccc.replace('"', '');
+        var eee = ddd.replace(',', '');
+        console.log('city ip:',eee);
+
+      },
+      fail: function () {
+        console.log("失败了");
+      }
+    })
+
   },
 
   // 切换是否带有登录态
