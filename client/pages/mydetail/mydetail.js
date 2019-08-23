@@ -12,6 +12,7 @@ Page({
   },
 
   bindGetUserInfo: function () {
+    var that = this
     if (this.data.logged) return
 
     util.showBusy('正在登录')
@@ -43,16 +44,19 @@ Page({
     }
     wx.request({
       url: 'https://pv.sohu.com/cityjson?ie=utf-8',
-      success: function (e) {
+      success: function (res) {
         /*获取当前用户ip地址*/
-        console.log(e.data);
-        var aaa = e.data.split(' ');
+        console.log(res.data);
+        var aaa = res.data.split(' ');
         var bbb = aaa[4];
         var ccc = bbb.replace('"', '');
         var ddd = ccc.replace('"', '');
-        var eee = ddd.replace(',', '');
-        console.log('city ip:',eee);
-
+        var ip_address = ddd.replace(',', '');
+        console.log('city ip:', ip_address);
+        that.setData({
+          IP: ip_address
+        })
+        console.log(that.data)
       },
       fail: function () {
         console.log("失败了");
