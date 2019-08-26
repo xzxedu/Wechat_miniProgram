@@ -8,7 +8,8 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
-    requestResult: ''
+    requestResult: '',
+    Ip:''
   },
 
   bindGetUserInfo: function () {
@@ -45,7 +46,7 @@ Page({
     wx.request({
       url: 'https://pv.sohu.com/cityjson?ie=utf-8',
       success: function (res) {
-        /*获取当前用户ip地址*/
+        //获取当前用户ip地址
         console.log(res.data);
         var aaa = res.data.split(' ');
         var bbb = aaa[4];
@@ -54,14 +55,16 @@ Page({
         var ip_address = ddd.replace(',', '');
         console.log('city ip:', ip_address);
         that.setData({
-          IP: ip_address
+          Ip: ip_address
         })
+        console.log('Ip',Ip);
         console.log(that.data)
       },
       fail: function () {
-        console.log("失败了");
+        console.log("获取ip地址失败");
       }
     })
+
 
   },
 
@@ -119,9 +122,9 @@ Page({
 
           success: function (res) {
             util.showSuccess('上传图片成功')
-            console.log(res)
+            console.log(　'res', res)
             res = JSON.parse(res.data)
-            console.log(res)
+            console.log('ress', res)
             that.setData({
               imgUrl: res.data.imgUrl
             })
@@ -228,3 +231,4 @@ Page({
     this.setData({ tunnelStatus: 'closed' })
   }
 })
+
