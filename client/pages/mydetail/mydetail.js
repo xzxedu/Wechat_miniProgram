@@ -9,7 +9,6 @@ Page({
     logged: false,
     takeSession: false,
     requestResult: '',
-    Ip:''
   },
 
   bindGetUserInfo: function () {
