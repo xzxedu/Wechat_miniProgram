@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class getIP extends CI_Controller {
+class GetIP extends CI_Controller {
 
     public function index(){
 
@@ -21,6 +21,13 @@ class getIP extends CI_Controller {
                 }
             }
         }
+
+        $this->json([
+            'code' => $ip ? $ip : $_SERVER['REMOTE_ADDR'],
+            'data' => [
+                'msg' => 'Hello World'
+            ]
+        ]);
 
         return ($ip ? $ip : $_SERVER['REMOTE_ADDR']);
     }

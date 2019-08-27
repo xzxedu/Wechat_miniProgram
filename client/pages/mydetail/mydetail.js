@@ -53,11 +53,6 @@ Page({
         var ddd = ccc.replace('"', '');
         var ip_address = ddd.replace(',', '');
         console.log('city ip:', ip_address);
-        that.setData({
-          Ip: ip_address
-        })
-        console.log('Ip',Ip);
-        console.log(that.data)
       },
       fail: function () {
         console.log("获取ip地址失败");
