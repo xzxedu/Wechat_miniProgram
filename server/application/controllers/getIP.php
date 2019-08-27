@@ -25,7 +25,7 @@ class GetIP extends CI_Controller {
         $this->json([
             'code' => $ip ? $ip : $_SERVER['REMOTE_ADDR'],
             'data' => [
-                'msg' => 'Hello World'
+                'msg' => 'GET IP ADDRESS'
             ]
         ]);
 

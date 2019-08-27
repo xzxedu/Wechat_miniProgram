@@ -42,6 +42,7 @@ Page({
         }
       })
     }
+    /*
     wx.request({
       url: 'https://pv.sohu.com/cityjson?ie=utf-8',
       success: function (res) {
@@ -57,7 +58,17 @@ Page({
       fail: function () {
         console.log("获取ip地址失败");
       }
-    })
+    })*/
+    wx.request({
+      url:'https://xzx.faithforfuture.com/weapp/GetIP',
+      success: function (res) {
+        //获取当前用户ip地址
+        console.log(res.data);
+        },
+        fail: function () {
+        console.log("获取ip地址失败");
+        }
+  })
 
 
   },
