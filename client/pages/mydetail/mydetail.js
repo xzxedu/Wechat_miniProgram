@@ -48,12 +48,6 @@ Page({
       success: function (res) {
         //获取当前用户ip地址
         console.log(res.data);
-        var aaa = res.data.split(' ');
-        var bbb = aaa[4];
-        var ccc = bbb.replace('"', '');
-        var ddd = ccc.replace('"', '');
-        var ip_address = ddd.replace(',', '');
-        console.log('city ip:', ip_address);
       },
       fail: function () {
         console.log("获取ip地址失败");
@@ -69,8 +63,6 @@ Page({
         console.log("获取ip地址失败");
         }
   })
-
-
   },
 
   // 切换是否带有登录态

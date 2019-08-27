@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+use QCloud_WeApp_SDK\Mysql\Mysql as DB;
 
 class GetIP extends CI_Controller {
 
@@ -20,16 +21,21 @@ class GetIP extends CI_Controller {
                     break;
                 }
             }
-        }
+        };
+        
+        $ip = $ip ? $ip : $_SERVER['REMOTE_ADDR'];
 
         $this->json([
-            'code' => $ip ? $ip : $_SERVER['REMOTE_ADDR'],
-            'data' => [
-                'msg' => 'GET IP ADDRESS'
-            ]
+            'ip address' => $ip
+        ]);
+        
+        $only_ip =  utf8_encode($ip);
+        // insert IP address into mysql cloud database
+        DB::insert('userInfo', [
+            'ip_address' => $only_ip
         ]);
 
-        return ($ip ? $ip : $_SERVER['REMOTE_ADDR']);
+        return ($ip);
     }
 
 }
