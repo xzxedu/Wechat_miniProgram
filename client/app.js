@@ -9,15 +9,16 @@ App({
     getUserInfo: function (cb) {
     var that = this
     if (this.globalData.userInfo) {
+      console.log("aaaaa")
       typeof cb == "function" && cb(this.globalData.userInfo)
     } else {
+      console.log("bbbb")
       //调用登录接口
       wx.login({
         success: function (loginres) {
           console.log("登录凭证：" + loginres.code)
-
-          //appid:wx30d51acdaf80ae67
-          //secret:303c9fc92554beee2aff193e2322d025
+          //appid:wx76aec7d8d5f5083f
+          //secret:de369b1d7fcb9d07cecb30a7ea30fbf1
           //grant_type:authorization_code
 
           wx.getUserInfo({

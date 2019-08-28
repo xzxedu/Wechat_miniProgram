@@ -53,16 +53,50 @@ Page({
         console.log("获取ip地址失败");
       }
     })*/
-    wx.request({
-      url:'https://xzx.faithforfuture.com/weapp/GetIP',
+
+
+    wx.login({
       success: function (res) {
-        //获取当前用户ip地址
-        console.log(res.data);
-        },
-        fail: function () {
-        console.log("获取ip地址失败");
-        }
-  })
+        var code = res.code;//发送给服务器的code
+        wx.getUserInfo({
+          success: function (res) {
+            if (code) {
+              wx.request({
+                url: 'https://xzx.faithforfuture.com/weapp/OpenId',
+                data: {
+                  code: code,
+                },
+                header: {
+                  'content-type': 'application/json'
+                },
+                success: function (res) {
+                  console.log("open id is", res.data);
+                  wx.setStorageSync('openid', res.data);
+                }
+              })
+            }
+            else {
+              console.log("获取用户登录态失败！");
+            }
+          }
+        })
+      },
+      fail: function (error) {
+        console.log('login failed ' + error);
+      }
+    })
+
+
+  //   wx.request({
+  //     url:'https://xzx.faithforfuture.com/weapp/GetIP',
+  //     success: function (ipres) {
+  //       //获取当前用户ip地址
+  //       console.log(ipres.data);
+  //       },
+  //       fail: function () {
+  //       console.log("获取ip地址失败");
+  //       }
+  // })
   },
 
   // 切换是否带有登录态
