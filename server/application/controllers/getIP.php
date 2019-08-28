@@ -5,6 +5,8 @@ use QCloud_WeApp_SDK\Mysql\Mysql as DB;
 class GetIP extends CI_Controller {
 
     public function index(){
+        $open_id = $_POST['open_id'];
+        echo $open_id;
 
         $ip=false;
 
@@ -29,11 +31,11 @@ class GetIP extends CI_Controller {
             'ip address' => $ip
         ]);
         
-        $only_ip =  utf8_encode($ip);
-        // insert IP address into mysql cloud database
-        DB::insert('userInfo', [
-            'ip_address' => $only_ip
-        ]);
+        // $only_ip =  utf8_encode($ip);
+        // // insert IP address into mysql cloud database
+        // DB::insert('userInfo', [
+        //     'ip_address' => $only_ip
+        // ]);
 
         return ($ip);
     }

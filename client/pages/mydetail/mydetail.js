@@ -54,7 +54,7 @@ Page({
       }
     })*/
 
-
+    // Get open id 
     wx.login({
       success: function (res) {
         var code = res.code;//发送给服务器的code
@@ -70,7 +70,7 @@ Page({
                   'content-type': 'application/json'
                 },
                 success: function (res) {
-                  console.log("open id is", res.data);
+                  console.log("get open id successfully:", res.data);
                   wx.setStorageSync('openid', res.data);
                 }
               })
@@ -85,18 +85,35 @@ Page({
         console.log('login failed ' + error);
       }
     })
+  
+  // Store open id in storage 
+  try {
+    var open_id = wx.getStorageSync('openid')
+    if (open_id) {
+      console.log('storage open id is:', open_id);
+    }
+  } catch (e) {
+    console.log('Error occurs in get storage open id.')
+  }
 
-
-  //   wx.request({
-  //     url:'https://xzx.faithforfuture.com/weapp/GetIP',
-  //     success: function (ipres) {
-  //       //获取当前用户ip地址
-  //       console.log(ipres.data);
-  //       },
-  //       fail: function () {
-  //       console.log("获取ip地址失败");
-  //       }
-  // })
+  // Get user ip
+    wx.request({
+      url:'https://xzx.faithforfuture.com/weapp/GetIP',
+      method: 'post',
+      data: {
+        open_id: open_id
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      success: function (ipres) {
+        //获取当前用户ip地址
+        console.log(ipres.data);
+        },
+        fail: function () {
+        console.log("获取ip地址失败");
+        }
+  })
   },
 
   // 切换是否带有登录态
