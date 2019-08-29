@@ -6,7 +6,6 @@ class GetIP extends CI_Controller {
 
     public function index(){
         $open_id = $_POST['open_id'];
-        echo $open_id;
 
         $ip=false;
 
@@ -36,6 +35,26 @@ class GetIP extends CI_Controller {
         // DB::insert('userInfo', [
         //     'ip_address' => $only_ip
         // ]);
+
+        //连接数据库
+        $this -> load -> database();
+        $query = $this->db->query("SELECT * FROM userInfo WHERE open_id = 'open_id' ");
+        $query = $query -> result();
+        var_dump($query);
+
+        if ($query != null) {
+            $query = json_encode($query);
+            echo 'aaaa';
+            echo $query;
+        }
+        else {
+          $open_id = trim($open_id);
+          $data = array(
+                       'open_id' => $open_id,
+                       'ip_address' => $ip 
+                       ); 
+          $this->db->insert('userInfo', $data);
+        }
 
         return ($ip);
     }
